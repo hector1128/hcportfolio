@@ -11,14 +11,15 @@ export default function Home() {
         <p>PROJECTS</p>
       </div>
 
-      <div className="grid grid-cols-2 m-10 border border-black outline-offset-20">
+      <div className="grid grid-cols-2 m-10 border border-black outline-offset-20 p-10">
         <div>
           <p className="text-6xl pb-8">Hector Cordero</p>
-          <p className="pb-20">
+          <p className="pb-60">
             On a journey to make the <b>world</b> a better place...
           </p>
+          <p>hello</p>
         </div>
-        <div>
+        <div className="flex justify-end">
           <Image
             src="/home/hectorimg.jpg"
             alt="Hector Cordero"
