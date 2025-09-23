@@ -1,96 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import Typewriter from "./components/type-writer";
+import BackgroundDecor from "./components/background-decor";
+import NavBar from "./components/nav-bar";
 import OnMountFlag from "./components/OnMountFlag";
 
 export default function Home() {
   // Animation state for page load
   return (
     <main className="p-12 relative overflow-hidden">
-      <OnMountFlag /> {/* sets html[data-loaded] on the client*/}
+      <OnMountFlag />
       {/* --- Minimal black background effects --- */}
-      <div
-        aria-hidden
-        className={`pointer-events-none absolute inset-0 z-0 bg-fade-onload`}
-      >
-        {/* Top left blurred circle */}
-        <div className="absolute -top-24 -left-24 w-72 h-72 bg-black opacity-10 rounded-full blur-3xl"></div>
-        {/* Bottom right blurred ellipse */}
-        <div className="absolute bottom-0 right-0 w-96 h-48 bg-black opacity-10 rounded-full blur-3xl rotate-12"></div>
-        {/* Center floating line */}
-        <div className="absolute left-1/2 top-1/3 -translate-x-1/2 w-2/3 h-1 bg-black opacity-10 blur-md rounded-full"></div>
-        {/* Subtle animated dot grid */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <svg
-            width="100%"
-            height="100%"
-            className="opacity-10 animate-dotmove"
-            style={{ position: "absolute", top: 0, left: 0 }}
-          >
-            <defs>
-              <pattern
-                id="dots"
-                x="0"
-                y="0"
-                width="32"
-                height="32"
-                patternUnits="userSpaceOnUse"
-              >
-                <circle cx="1.5" cy="1.5" r="1.5" fill="black" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#dots)" />
-          </svg>
-        </div>
-      </div>
-      {/* --- End background effects --- */}
+      <BackgroundDecor />
+
       {/* Navigation container */}
-      <div
-        className={`shadow-2xl rounded-xl flex flex-wrap justify-center gap-5 font-sans font-bold p-4 md:text-lg mx-auto max-w-4xl fade-onload bg-[#6f4e37] text-[#F6EEE6]`}
-      >
-        {/* Navigation container links */}
-        <Link
-          href="/"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
-        >
-          HOME
-        </Link>
-        <Link
-          href="/about"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
-        >
-          ABOUT
-        </Link>
-        <Link
-          href="/career"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
-        >
-          CAREER
-        </Link>
-        <Link
-          href="/projects"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
-        >
-          PROJECTS
-        </Link>
-        <Link
-          href="https://www.hectorcordero.com"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
-        >
-          CONTACT ME
-        </Link>
-      </div>
+      <NavBar />
+
       {/* Main content container */}
       <div
         className={`grid grid-cols-1 md:grid-cols-2 m-4 md:m-10 border border-[#6f4e37] outline-offset-20 p-4 md:p-10 gap-8 fade-onload shadow-2xl rounded-xl`}
       >
-        <div>
-          <p className="text-3xl pb-4 md:text-6xl md:pb-8 text-[#6f4e37]">
-            HECTOR CORDERO
-          </p>
-          <Typewriter />
-          <div className="flex gap-5 flex-wrap">
-            {/* Social icons */}
+        <div className="flex flex-col h-full justify-between">
+          <div>
+            <p className="text-3xl pb-4 md:text-6xl md:pb-8 text-[#6f4e37]">
+              HECTOR CORDERO
+            </p>
+            <Typewriter />
+          </div>
+          <div className="flex gap-5 flex-wrap items-end mt-8">
+            {/* Social icons aligned bottom left */}
             <Link
               href="https://www.github.com/hector1128"
               className="transition-transform duration-200 hover:scale-110 hover:drop-shadow-[0_0_8px_white]"
@@ -138,14 +76,14 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="flex justify-center md:justify-end items-center">
+        <div className="pr-15 flex justify-center md:justify-end items-center">
           {/* Profile image */}
           <Image
-            src="/home/hectorimg.jpg"
+            src="/home/proshot-hc.png"
             alt="Hector Cordero"
             width={250}
             height={250}
-            className="border-2 border-[#6f4e37] shadow-2xl w-full max-w-xs md:max-w-md h-auto rounded-lg transition-all duration-200 hover:scale-105 hover:drop-shadow-[0_0_16px_white]"
+            className="border-2 border-[#6f4e37] shadow-2xl w-full max-w-[12rem] md:max-w-[20rem] h-auto rounded-lg transition-all duration-200 hover:scale-105 hover:drop-shadow-[0_0_16px_white]"
             priority
           />
         </div>
