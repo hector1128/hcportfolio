@@ -50,12 +50,12 @@ export default function Home() {
         <div className="absolute bottom-0 right-0 w-96 h-48 bg-black opacity-10 rounded-full blur-3xl rotate-12"></div>
         {/* Center floating line */}
         <div className="absolute left-1/2 top-1/3 -translate-x-1/2 w-2/3 h-1 bg-black opacity-10 blur-md rounded-full"></div>
-        {/* Subtle dot grid */}
-        <div className="absolute inset-0 z-0">
+        {/* Subtle animated dot grid */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <svg
             width="100%"
             height="100%"
-            className="opacity-10"
+            className="opacity-10 animate-dotmove"
             style={{ position: "absolute", top: 0, left: 0 }}
           >
             <defs>
@@ -82,27 +82,28 @@ export default function Home() {
           loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         } bg-[#6f4e37] text-[#F6EEE6]`}
       >
+        {/* Navigation container links */}
         <Link
           href="/"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105"
+          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
         >
           HOME
         </Link>
         <Link
           href="/about"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105"
+          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
         >
           ABOUT
         </Link>
         <Link
           href="/career"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105"
+          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
         >
           CAREER
         </Link>
         <Link
           href="/projects"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105"
+          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
         >
           PROJECTS
         </Link>
@@ -129,9 +130,10 @@ export default function Home() {
             </span>
           </p>
           <div className="flex gap-5 flex-wrap">
+            {/* Social icons */}
             <Link
               href="https://www.github.com/hector1128"
-              className="transition-transform duration-200 hover:scale-110 hover:drop-shadow-lg"
+              className="transition-transform duration-200 hover:scale-110 hover:drop-shadow-[0_0_8px_white]"
             >
               <Image
                 src="/home/github-logo.png"
@@ -146,7 +148,7 @@ export default function Home() {
             </Link>
             <Link
               href="https://www.linkedin.com/in/hectorhcordero/"
-              className="transition-transform duration-200 hover:scale-110 hover:drop-shadow-lg"
+              className="transition-transform duration-200 hover:scale-110 hover:drop-shadow-[0_0_8px_white]"
             >
               <Image
                 src="/home/linkedin-logo.png"
@@ -161,7 +163,7 @@ export default function Home() {
             </Link>
             <Link
               href="/home/Resume2025.pdf"
-              className="transition-transform duration-200 hover:scale-110 hover:drop-shadow-lg"
+              className="transition-transform duration-200 hover:scale-110 hover:drop-shadow-[0_0_8px_white]"
             >
               <Image
                 src="/home/resume-logo.png"
@@ -177,12 +179,13 @@ export default function Home() {
           </div>
         </div>
         <div className="flex justify-center md:justify-end items-center">
+          {/* Profile image */}
           <Image
             src="/home/hectorimg.jpg"
             alt="Hector Cordero"
             width={250}
             height={250}
-            className="border-2 border-[#6f4e37] shadow-2xl w-full max-w-xs md:max-w-md h-auto rounded-lg"
+            className="border-2 border-[#6f4e37] shadow-2xl w-full max-w-xs md:max-w-md h-auto rounded-lg transition-all duration-200 hover:scale-105 hover:drop-shadow-[0_0_16px_white]"
             priority
           />
         </div>

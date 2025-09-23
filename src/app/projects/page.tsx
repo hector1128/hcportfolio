@@ -47,27 +47,28 @@ export default function ProjectsPage() {
           loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         } bg-[#6f4e37] text-[#F6EEE6]`}
       >
+        {/* Navigation container links */}
         <Link
           href="/"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105"
+          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
         >
           HOME
         </Link>
         <Link
           href="/about"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105"
+          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
         >
           ABOUT
         </Link>
         <Link
           href="/career"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105"
+          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
         >
           CAREER
         </Link>
         <Link
           href="/projects"
-          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105"
+          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
         >
           PROJECTS
         </Link>
