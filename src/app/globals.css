@@ -2,9 +2,20 @@
 
 
 :root {
-  --background: #e7dfd8;
+  --background: #F6EEE6;
   --foreground: #e7dfd8;
+  --text: #5B3A29;
+  --muted: #8C6A55;         /* for borders/icons        /* teal accent for CTAs/links */
 }
+body { color: var(--text); background: var(--bg); }
+.button-primary { background: var(--accent); color: white; }
+a { color: var(--accent); }
+.border { border-color: color-mix(in srgb, var(--muted) 60%, transparent); }
+
+
+
+  
+
 
 @theme inline {
   --color-background: var(--background);
@@ -26,3 +37,6 @@ body {
   /* pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite */
 }
 
+.animate-blink { animation: blink 1s steps(2, start) infinite; }
+
+@keyframes blink { to { visibility: hidden; } }
