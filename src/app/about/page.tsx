@@ -1,16 +1,14 @@
-"use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import OnMountFlag from "../components/OnMountFlag";
 
 export default function ProjectsPage() {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setLoaded(true);
-  }, []);
   return (
     <main className="p-12">
-      <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
+      <OnMountFlag />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 bg-fade-onload"
+      >
         {/* Top left blurred circle */}
         <div className="absolute -top-24 -left-24 w-72 h-72 bg-black opacity-10 rounded-full blur-3xl"></div>
         {/* Bottom right blurred ellipse */}
@@ -43,9 +41,7 @@ export default function ProjectsPage() {
       </div>
 
       <div
-        className={`shadow-2xl rounded-xl flex flex-wrap justify-center gap-4 font-sans font-bold p-4 md:text-lg transition-all duration-700 mx-auto max-w-4xl ${
-          loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        } bg-[#6f4e37] text-[#F6EEE6]`}
+        className={`shadow-2xl rounded-xl flex flex-wrap justify-center gap-4 font-sans font-bold p-4 md:text-lg fade-onload mx-auto max-w-4xl bg-[#6f4e37] text-[#F6EEE6]`}
       >
         {/* Navigation container links */}
         <Link

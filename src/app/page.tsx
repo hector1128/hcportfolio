@@ -1,48 +1,17 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import Typewriter from "./components/type-writer";
+import OnMountFlag from "./components/OnMountFlag";
 
 export default function Home() {
-  // Typewriter effect state and logic
-  const fullText = "On a journey to make the world a better place...";
-  const [displayed, setDisplayed] = useState("");
-  const [showCursor, setShowCursor] = useState(true);
-
-  useEffect(() => {
-    let current = 0;
-    const typing = setInterval(() => {
-      setDisplayed(fullText.slice(0, current + 1));
-      current++;
-      if (current === fullText.length) clearInterval(typing);
-    }, 40);
-
-    return () => clearInterval(typing);
-  }, []);
-
-  useEffect(() => {
-    const cursorBlink = setInterval(() => {
-      setShowCursor((v) => !v);
-    }, 500);
-    return () => clearInterval(cursorBlink);
-  }, []);
-
   // Animation state for page load
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setLoaded(true);
-  }, []);
-
   return (
     <main className="p-12 relative overflow-hidden">
+      <OnMountFlag /> {/* sets html[data-loaded] on the client*/}
       {/* --- Minimal black background effects --- */}
       <div
         aria-hidden
-        className={`pointer-events-none absolute inset-0 z-0 transition-all duration-1000 ${
-          loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}
+        className={`pointer-events-none absolute inset-0 z-0 bg-fade-onload`}
       >
         {/* Top left blurred circle */}
         <div className="absolute -top-24 -left-24 w-72 h-72 bg-black opacity-10 rounded-full blur-3xl"></div>
@@ -75,12 +44,9 @@ export default function Home() {
         </div>
       </div>
       {/* --- End background effects --- */}
-
       {/* Navigation container */}
       <div
-        className={`shadow-2xl rounded-xl flex flex-wrap justify-center gap-4 font-sans font-bold p-4 md:text-lg transition-all duration-700 mx-auto max-w-4xl ${
-          loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        } bg-[#6f4e37] text-[#F6EEE6]`}
+        className={`shadow-2xl rounded-xl flex flex-wrap justify-center gap-5 font-sans font-bold p-4 md:text-lg mx-auto max-w-4xl fade-onload bg-[#6f4e37] text-[#F6EEE6]`}
       >
         {/* Navigation container links */}
         <Link
@@ -107,28 +73,22 @@ export default function Home() {
         >
           PROJECTS
         </Link>
+        <Link
+          href="https://www.hectorcordero.com"
+          className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
+        >
+          CONTACT ME
+        </Link>
       </div>
-
       {/* Main content container */}
       <div
-        className={`grid grid-cols-1 md:grid-cols-2 m-4 md:m-10 border border-[#6f4e37] outline-offset-20 p-4 md:p-10 gap-8 transition-all duration-700 ${
-          loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}
+        className={`grid grid-cols-1 md:grid-cols-2 m-4 md:m-10 border border-[#6f4e37] outline-offset-20 p-4 md:p-10 gap-8 fade-onload shadow-2xl rounded-xl`}
       >
         <div>
           <p className="text-3xl pb-4 md:text-6xl md:pb-8 text-[#6f4e37]">
             HECTOR CORDERO
           </p>
-          <p className="pb-10 md:pb-60 text-base md:text-lg min-h-[2.5rem] text-[#6f4e37]">
-            {displayed}
-            <span className="inline-block w-2 text-[#6f4e37]">
-              {showCursor ? (
-                <span className="animate-blink">|</span>
-              ) : (
-                <span>&nbsp;</span>
-              )}
-            </span>
-          </p>
+          <Typewriter />
           <div className="flex gap-5 flex-wrap">
             {/* Social icons */}
             <Link

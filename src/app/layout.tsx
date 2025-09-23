@@ -1,6 +1,45 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  //TO DO!!!!
+  metadataBase: new URL("https://example.com"),
+
+  title: {
+    default: "Hector Cordero – Software Engineer",
+    template: "%s | Hector Cordero",
+  },
+
+  description: "Portfolio, projects and contact.",
+
+  applicationName: "Hector Cordero Portfolio",
+  authors: [{ name: "Hector Cordero", url: "https://YOUR-DOMAIN.com" }], // TODO
+  creator: "Hector Cordero",
+  publisher: "Hector Cordero",
+  keywords: [
+    "Hector Cordero",
+    "software engineer",
+    "Next.js",
+    "TypeScript",
+    "portfolio",
+  ],
+
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Hector Cordero",
+    title: "Hector Cordero – Software Engineer",
+    description:
+      "Projects, experience, and contact details for Hector Cordero.",
+    images: ["/og.png"],
+    locale: "en-US",
+  },
+
+  twitter: { card: "summary_large_image" },
+
+  alternates: { canonical: "/" },
+};
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -9,9 +48,10 @@ const poppins = Poppins({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Hector Cordero",
-  description: "Aspiring Software Engineer",
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#5B3A29",
 };
 
 export default function RootLayout({
