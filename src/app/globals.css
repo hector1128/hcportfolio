@@ -33,7 +33,7 @@ a { color: var(--accent); }
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #e7dfd8;
-    --foreground: #171717;
+    --foreground: #fefafa;
   }
 }
 

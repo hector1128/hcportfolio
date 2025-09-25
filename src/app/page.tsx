@@ -25,7 +25,12 @@ export default function Home() {
             <p className="text-3xl pb-4 md:text-6xl md:pb-8 text-[#6f4e37]">
               HECTOR CORDERO
             </p>
-            <Typewriter />
+            <Typewriter
+              text={"On a journey to make the world a better place..."}
+              design={
+                "pb-10 md:pb-60 text-base md:text-lg min-h-[2.5rem] text-[#6f4e37]"
+              }
+            />
           </div>
           <div className="flex gap-5 flex-wrap items-end mt-8">
             {/* Social icons aligned bottom left */}

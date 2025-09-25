@@ -1,32 +1,34 @@
 "use client";
+import { useEffect, useState } from "react";
 
-import { useState, useEffect } from "react";
+type Props = { text?: string; design?: string; speed?: number };
 
-export default function Typewriter() {
-  // TYPEWRITER EFFECT STATE AND LOGIC
-  const fullText = "On a journey to make the world a better place...";
+export default function Typewriter({
+  text = "",
+  design = "",
+  speed = 40,
+}: Props) {
   const [displayed, setDisplayed] = useState("");
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
-    let current = 0;
-    const typing = setInterval(() => {
-      setDisplayed(fullText.slice(0, current + 1));
-      current++;
-      if (current === fullText.length) clearInterval(typing);
-    }, 40);
-
-    return () => clearInterval(typing);
-  }, []);
+    setDisplayed("");
+    let i = 0;
+    const id = setInterval(() => {
+      i++;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) clearInterval(id);
+    }, speed);
+    return () => clearInterval(id);
+  }, [text, speed]);
 
   useEffect(() => {
-    const cursorBlink = setInterval(() => {
-      setShowCursor((v) => !v);
-    }, 500);
-    return () => clearInterval(cursorBlink);
+    const id = setInterval(() => setShowCursor((v) => !v), 500);
+    return () => clearInterval(id);
   }, []);
+
   return (
-    <p className="pb-10 md:pb-60 text-base md:text-lg min-h-[2.5rem] text-[#6f4e37]">
+    <p className={design} aria-label={text}>
       {displayed}
       <span className="inline-block w-2 text-[#6f4e37]">
         {showCursor ? (
