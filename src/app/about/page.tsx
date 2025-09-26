@@ -1,10 +1,3 @@
-// app/about/page.tsx
-// — High-level notes —
-// 1) Try to mount OnMountFlag in app/layout.tsx so it persists between routes.
-//    Keeping it here still works, but it remounts per page.
-// 2) The page uses semantic <section> blocks; consider <h1> for the top title.
-// 3) We add ids for each card row so a client-side <Connector> can draw a dashed path.
-
 import OnMountFlag from "../components/OnMountFlag";
 import BackgroundDecor from "../components/background-decor";
 import NavBar from "../components/nav-bar";
