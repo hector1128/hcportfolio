@@ -4,6 +4,7 @@ import BackgroundDecor from "../components/background-decor";
 import PillGrid from "../components/pill-grid";
 import CareerInteractive from "./client";
 import { EXPERIENCES, LANGUAGES, FRAMEWORKS, TOOLS } from "../data/career";
+import Typewriter from "../components/type-writer";
 
 export default function Page() {
   return (
@@ -12,13 +13,23 @@ export default function Page() {
       <BackgroundDecor />
       <NavBar />
 
+      <section className="max-w-4xl mx-auto -mt-1 mb-8 pt-15 px-4 fade-onload">
+        <Typewriter
+          text={`A calm, visual story of the places I’ve worked and what I built there.`}
+          design="text-[#5B3A29]/80 text-base md:text-lg leading-relaxed
+            bg-[#6f4e37]/[0.06] border border-[#6f4e37]/20
+            rounded-xl px-4 py-3 shadow-sm"
+        />
+        {/* Intro paragraph */}
+
+        {/* subtle divider to separate intro from cards */}
+        <div className="h-px bg-gradient-to-r from-transparent via-[#6f4e37]/20 to-transparent mt-4" />
+      </section>
+
       <header className="mb-8 md:mb-12">
         <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-[#6f4e37]">
-          Career
+          Experiences
         </h1>
-        <p className="mt-4 text-lg leading-relaxed text-[#6f4e37]">
-          A calm, visual story of the places I’ve worked and what I built there.
-        </p>
       </header>
 
       {/* Experience Grid (interactive client island) */}
