@@ -70,7 +70,7 @@ export default function ProjectsIsland({ projects }: { projects: Project[] }) {
             key={featured.id} // <-- force clean remount on swap
             layout
             transition={t}
-            className="mb-10 rounded-2xl bg-[#f3ede7] ring-1 ring-[#6f4e37]/15 p-4 md:p-6 shadow-[0_18px_40px_-16px_rgba(91,58,41,0.35)]"
+            className="mb-10 rounded-2xl bg-transparent ring-1 ring-[#6f4e37]/15 p-4 md:p-6 shadow-[0_18px_40px_-16px_rgba(91,58,41,0.35)]"
             aria-label={`Featured project: ${featured.title}`}
           >
             <div className="flex items-center justify-between mb-3">
@@ -145,14 +145,6 @@ export default function ProjectsIsland({ projects }: { projects: Project[] }) {
                       className="inline-flex items-center rounded-lg px-4 py-2 border border-[#6f4e37]/40 text-[#6f4e37] bg-[#6f4e37] hover:bg-[#6f4e37]/85"
                     >
                       Code ↗
-                    </a>
-                  )}
-                  {featured.links?.case && (
-                    <a
-                      href={featured.links.case}
-                      className="inline-flex items-center rounded-lg px-4 py-2 border border-[#6f4e37]/40 text-[#6f4e37] bg-[#6f4e37] hover:bg-[#6f4e37]/85"
-                    >
-                      Case Study
                     </a>
                   )}
                 </div>
