@@ -70,6 +70,9 @@ export default function ProjectsIsland({ projects }: { projects: Project[] }) {
             key={featured.id} // <-- force clean remount on swap
             layout
             transition={t}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
             className="mb-10 rounded-2xl bg-transparent ring-1 ring-[#6f4e37]/15 p-4 md:p-6 shadow-[0_18px_40px_-16px_rgba(91,58,41,0.35)]"
             aria-label={`Featured project: ${featured.title}`}
           >
@@ -165,7 +168,7 @@ export default function ProjectsIsland({ projects }: { projects: Project[] }) {
             layout
             transition={t}
             onClick={() => handleFeature(p.id)}
-            className="group text-left rounded-2xl overflow-hidden bg-[#e7dfd8] ring-1 ring-[#6f4e37]/10 hover:-translate-y-1 transition-transform"
+            className="cursor-pointer group text-left rounded-2xl overflow-hidden bg-[#e7dfd8] ring-1 ring-[#6f4e37]/10 hover:-translate-y-1 transition-transform"
             aria-label={`Feature ${p.title}`}
           >
             <motion.div layoutId={`card-${p.id}`} transition={t}>

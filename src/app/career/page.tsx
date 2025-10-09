@@ -15,7 +15,7 @@ export default function Page() {
 
       <section className="max-w-4xl mx-auto -mt-1 mb-8 pt-15 px-4 fade-onload">
         <Typewriter
-          text={`A calm, visual story of the places I’ve worked and what I built there.`}
+          text={`Here's my experience and what I built there. You can also find my tech stack below :)...`}
           design="text-[#5B3A29]/80 text-base md:text-lg leading-relaxed
             bg-[#6f4e37]/[0.06] border border-[#6f4e37]/20
             rounded-xl px-4 py-3 shadow-sm"

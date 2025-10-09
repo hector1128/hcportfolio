@@ -12,7 +12,7 @@ export const cardData: AboutCard[] = [
     cardtitle: "VENEZUELA",
     cardtext: "Where my journey begun...",
     cardparagraph:
-      "I was born in Venezuela, a beautiful country in South America. I lived there until I was 8 years old. My family and I moved to the United States in search of better opportunities and a brighter future. Leaving my home country was a difficult decision, but it was one that has shaped who I am today.",
+      "Oh man... Despite the situation, I love Venezuela. I think part of it was me being young and the nostalgia. I spent 10 years here, until my family and I were forced to move to the United States due to personal death threats (I KNOW RIGHT?). Anyways, I'm a firm believer that everything happens for a reason, so I think it was a chance to find better opportunities and a brighter future. Leaving my home country was a difficult decision, but it was one that has shaped who I am today.",
     highlight: ["South America", "New beginnings", "Family-first", "Resilience", "First Gen"],
   },
   {
@@ -20,7 +20,7 @@ export const cardData: AboutCard[] = [
     cardtitle: "BASKETBALL",
     cardtext: "My love and hate relationship...",
     cardparagraph:
-      "Basketball has been a significant part of my life since I was a child. I started playing when I was 10 years old and quickly fell in love with the sport. Over the years, I've played for various teams and have had the opportunity to compete at different levels. Basketball has taught me valuable lessons about teamwork, discipline, and perseverance.",
+      "I've played basketball for majority of my life, and it's safe to say it plays a part on who I am and most of my connections growing up. Not gonna lie, after moving to the US, I HATED basketball. It felt different from Venezuela, and I would feel pressure from my father and the coaches. On the bright side, it taught me to deal with pressure, work out, and how to deal with different kinds of people. I decided to quit sophomore year and decided to stick only to track. However, I found a love for it again and still play it to this day :) ",
     highlight: ["Teamwork", "Discipline", "Perseverance", "Competitive play"],
   },
   {
@@ -28,7 +28,7 @@ export const cardData: AboutCard[] = [
     cardtitle: "TRACK & FIELD",
     cardtext: "I must be faster, I must be better...",
     cardparagraph:
-      "In addition to basketball, I also participated in track and field during my high school years. I specialized in sprinting events, which required a different set of skills and training compared to basketball. Track and field helped me improve my speed, agility, and overall fitness. It also provided a great way to stay active and healthy.",
+      `I would always take home the hustle award in basketball tournaments and I found running fun. As a kid (and still), I found Sonic SUUUUUUPER cool. So, middle school comes around and my dad asks me, "Hey son, have you considered trying cross country? You might like it...". The rest was history. I managed to run 17:12 5K and 4:34 mile. It also taught me the importance of consistency and time management. I was running 40-50 miles a week while handling a social life and several AP classes. Fun...`,
     highlight: ["Sprinting", "Speed & agility", "Overall fitness", "Athlete", "Balanced training"],
   },
   {
@@ -36,7 +36,7 @@ export const cardData: AboutCard[] = [
     cardtitle: "UCF",
     cardtext: "Wait, what do I want to do with my life...",
     cardparagraph:
-      "I attended the University of Central Florida (UCF) for my undergraduate studies. UCF is a large public university located in Orlando, Florida. During my time at UCF, I pursued a degree in Computer Science. The coursework was challenging, but it provided me with a solid foundation in programming, algorithms, and software development. I also had the opportunity to work on various projects and internships that helped me gain practical experience in the field.",
+      "Wow. Coming to UCF feelss like yesterday. I remember being scared and wondering how I was going to do laundry all by myself. Stepping into UCF felt like going from a fish bowl to an ocean. I had the freedom to literally do anything I wanted. Plus, I had a million resources and I was gonna live with my best friend. I've developed every aspect of me in ways I couldn't have imagined thanks to UCF and I hope to keep doing so for the rest of my time here.",
     highlight: ["Computer Science", "Algorithms & DS", "Projects & internships", "Software fundamentals"],
   },
   {
@@ -44,7 +44,7 @@ export const cardData: AboutCard[] = [
     cardtitle: "NOW",
     cardtext: 'Clicking "Start" in the game of life...',
     cardparagraph:
-      "Currently, I am working as a software developer. I enjoy the challenges and opportunities that come with this profession. I am constantly learning new technologies and improving my skills. In my free time, I like to explore new hobbies, spend time with friends and family, and continue playing basketball and staying active.",
+      "Now, I am on the path to finding my purpose in life. Currently, I am working as a software developer for KnightHacks, the most goated club ever. I am developing my skills and learrning what it takes to be a software engineer. I hope to take these skills and apply them to the real world for an actual company and get to travel with my wife and eventually kids. I hope to also gain enough money to give back to my beautiful family and give the rest back to society, in hope of making the world a better place :)",
     highlight: ["Software developer", "Continuous learning", "New technologies", "Active lifestyle", "Family & friends"],
   },
 ];

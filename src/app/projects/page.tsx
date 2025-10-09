@@ -2,9 +2,8 @@ import NavBar from "../components/nav-bar";
 import BackgroundDecor from "../components/background-decor";
 import OnMountFlag from "../components/OnMountFlag";
 import Typewriter from "../components/type-writer";
-
-import ProjectsIsland from "../components/proj-island"; // NEW
-import { PROJECTS } from "../data/projects"; // NEW
+import ProjectsIsland from "../components/proj-island";
+import { PROJECTS } from "../data/projects";
 
 export default function ProjectsPage() {
   return (
@@ -15,8 +14,7 @@ export default function ProjectsPage() {
 
       <section className="max-w-4xl mx-auto -mt-1 mb-8 pt-15 px-4 fade-onload">
         <Typewriter
-          text={`This is a little timeline that showcases my life up until now. Enjoy
-                :)...`}
+          text={`All my projects! Not much right now but I plan on filling these up soon...`}
           design="text-[#5B3A29]/80 text-base md:text-lg leading-relaxed
             bg-[#6f4e37]/[0.06] border border-[#6f4e37]/20
             rounded-xl px-4 py-3 shadow-sm"

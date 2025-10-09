@@ -13,7 +13,7 @@ export default function LogoTile({
   return (
     <button
       onClick={onOpen}
-      className="group relative aspect-square rounded-2xl bg-[#e7dfd8] shadow-[0_10px_24px_-12px_rgba(91,58,41,0.35)] ring-1 ring-[#6f4e37]/10 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f4e37]/40"
+      className="cursor-pointer group relative aspect-square rounded-2xl bg-[#e7dfd8] shadow-[0_10px_24px_-12px_rgba(91,58,41,0.35)] ring-1 ring-[#6f4e37]/10 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f4e37]/40"
       aria-label={`${exp.company} — ${exp.role} (${exp.years})`}
     >
       <div className="absolute inset-0 p-8 grid place-items-center">

@@ -137,7 +137,6 @@ export function ReadMore({
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  // ✅ Properly typed variants (avoid the TS error)
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 8 },
     visible: {
@@ -167,7 +166,6 @@ export function ReadMore({
         exit={{ opacity: 0 }}
       />
 
-      {/* Panel — ✅ always fits viewport */}
       <motion.div
         onClick={(e) => e.stopPropagation()}
         className="
@@ -262,7 +260,7 @@ export function ReadMore({
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-3 top-3 rounded-full bg-black/40 p-2 text-white backdrop-blur hover:bg-black/50"
+          className="cursor-pointer absolute right-3 top-3 rounded-full bg-black/40 p-2 text-white backdrop-blur hover:bg-black/50"
         >
           ✕
         </button>

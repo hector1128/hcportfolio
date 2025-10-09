@@ -1,12 +1,9 @@
-// components/NavBar.tsx
+// components/NavBar.tsx  (Server)
 import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <div
-      className={`shadow-2xl rounded-xl flex flex-wrap justify-center gap-5 font-sans font-bold p-4 md:text-lg mx-auto max-w-4xl fade-onload bg-[#6f4e37] text-[#F6EEE6]`}
-    >
-      {/* Navigation container links */}
+    <div className="shadow-2xl rounded-xl flex flex-wrap justify-center gap-5 font-sans font-bold p-4 md:text-lg mx-auto max-w-4xl fade-onload bg-[#6f4e37] text-[#F6EEE6]">
       <Link
         href="/"
         className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
@@ -30,12 +27,6 @@ export default function NavBar() {
         className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
       >
         PROJECTS
-      </Link>
-      <Link
-        href="https://www.youtube.com/watch?v=Aq5WXmQQooo&list=RDAq5WXmQQooo&start_radio=1"
-        className="text-[#F6EEE6] transition-all duration-200 px-4 py-2 hover:scale-105 hover:drop-shadow-[0_0_8px_white]"
-      >
-        CONTACT ME
       </Link>
     </div>
   );

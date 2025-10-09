@@ -7,7 +7,6 @@ import { cardData } from "../data/about";
 
 export default function AboutPage() {
   return (
-    // Keep background + overflow, but constrain content width inside
     <main className="min-h-screen p-12 md:p-12 bg-[#e7dfd8] relative overflow-x-hidden">
       <OnMountFlag />
 
@@ -21,7 +20,7 @@ export default function AboutPage() {
       <section className="max-w-4xl mx-auto -mt-1 mb-8 pt-15 px-4 fade-onload">
         <Typewriter
           text={`This is a little timeline that showcases my life up until now. Enjoy
-          :)...`}
+                :)...`}
           design="text-[#5B3A29]/80 text-base md:text-lg leading-relaxed
       bg-[#6f4e37]/[0.06] border border-[#6f4e37]/20
       rounded-xl px-4 py-3 shadow-sm"

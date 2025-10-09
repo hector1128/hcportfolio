@@ -51,7 +51,7 @@ export default function SlideOver({
           </div>
           <button
             onClick={onClose}
-            className="rounded-lg px-3 py-1.5 bg-black/20 hover:bg.black/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            className="cursor-pointer rounded-lg px-3 py-1.5 bg-black/20 hover:bg.black/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             aria-label="Close panel"
           >
             ✕

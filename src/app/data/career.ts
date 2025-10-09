@@ -39,24 +39,26 @@ export const EXPERIENCES: Experience[] = [
     tech: ["Zoom", "Digital Whiteboard", "Google Docs"],
   },
   {
-    id: "aab-styles",
-    company: "AAB Styles",
-    role: "E-commerce & Content Assistant",
-    years: "2025",
-    logo: "/career/aab.jpg",
-    summary: "Supported a small apparel brand with catalog content and order ops.",
-    bullets: [
-      "Shot/edited product photos; updated listings and tags",
-      "Managed orders, returns, and customer inquiries",
-      "Improved product pages for clarity and conversion",
-    ],
-    tech: ["Shopify", "Canva", "Excel"],
-  },
+  id: "aab-styles",
+  company: "AAB Styles",
+  role: "Software Engineer Intern",
+  years: "Jun–Aug 2025",
+  logo: "/career/aab.jpg",
+  summary: "Rebuilt product and home pages; improved performance and UX for 8,000+ users.",
+  bullets: [
+    "Rebuilt product/home pages using React + Tailwind",
+    "Removed blocking scripts to speed page opens and smooth first-screen render for 8,000+ users",
+    "Implemented client-side filtering/sorting and image lazy loading to deliver ~200 ms updates across 150 products",
+    "Simplified navigation via React Hooks/Context, cutting checkout from 7 to 4 clicks in a sample flow",
+  ],
+  tech: ["React", "Tailwind CSS", "Context API"],
+},
+
   {
     id: "jersey-mikes",
     company: "Jersey Mike's",
     role: "Crew Member",
-    years: "2025",
+    years: " Apr-Jun 2025",
     logo: "/career/jm2.webp",
     summary: "Fast-paced operations — consistency, accuracy, and team coordination.",
     bullets: [
@@ -70,18 +72,18 @@ export const EXPERIENCES: Experience[] = [
     id: "knighthacks-dev",
     company: "KnightHacks (Development Team)",
     role: "Software Engineer",
-    years: "2025–Present",
+    years: "Sep 2025–Present",
     logo: "/career/kh2.png",
     summary: "Built web experiences and tools for the hackathon community.",
     bullets: [
       "Implemented responsive pages and components (Next.js + Tailwind)",
       "Added polished UX (modals, slide-overs) with Framer Motion",
-      "Collaborated across design and backend to ship features",
+      "Handled API calls and backend to ship features",
     ],
-    tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
+    tech: ["Next.js", "TypeScript", "Tailwind", "NextAuth", "Docker", "APIs"],
   },
 ];
 
 export const LANGUAGES = ["TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS"];
 export const FRAMEWORKS = ["Next.js", "React", "Node.js", "Express", "Prisma", "Tailwind"];
-export const TOOLS = ["Git", "Docker", "Figma", "Vercel", "PostgreSQL", "Supabase"];
+export const TOOLS = ["Git", "Docker", "Figma", "Vercel", "PostgreSQL", "Supabase", "NextAuth", "APIs"];
