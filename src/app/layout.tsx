@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   //TO DO!!!!
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL("https://hectorcordero.com"),
 
   title: {
     default: "Hector Cordero – Software Engineer",
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
   description: "Portfolio, projects and contact.",
 
   applicationName: "Hector Cordero Portfolio",
-  authors: [{ name: "Hector Cordero", url: "https://YOUR-DOMAIN.com" }], // TODO
+  authors: [{ name: "Hector Cordero", url: "https://hectorcordero.com" }], // TODO
   creator: "Hector Cordero",
   publisher: "Hector Cordero",
   keywords: [
     "Hector Cordero",
     "software engineer",
-    "Next.js",
-    "TypeScript",
+    "university of central florida",
+    "computer science",
     "portfolio",
   ],
 

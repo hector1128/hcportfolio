@@ -22,11 +22,11 @@ export const PROJECTS: Project[] = [
     title: "InsureFair",
     blurb:
       "Web app that helps users pick optimal insurance plans. React SPA with a simple optimizer comparing monthly premiums against life-expectancy input.",
-    hero: "/projects/insure.png", // TODO: ensure image exists
+    hero: "/projects/insure.png", 
     tags: ["ShellHacks 2024", "Plan optimizer", "Team project", "SPA"],
     stack: ["React", "JavaScript", "CSS", "HTML"],
     links: {
-       repo: "https://github.com/hector1128/hcportfolio" 
+       repo: "https://github.com/hector1128/insurefair" 
     },
     year: "2024",
   }

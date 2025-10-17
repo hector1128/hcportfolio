@@ -36,7 +36,7 @@ export const cardData: AboutCard[] = [
     cardtitle: "UCF",
     cardtext: "Wait, what do I want to do with my life...",
     cardparagraph:
-      "Wow. Coming to UCF feelss like yesterday. I remember being scared and wondering how I was going to do laundry all by myself. Stepping into UCF felt like going from a fish bowl to an ocean. I had the freedom to literally do anything I wanted. Plus, I had a million resources and I was gonna live with my best friend. I've developed every aspect of me in ways I couldn't have imagined thanks to UCF and I hope to keep doing so for the rest of my time here.",
+      "Wow. Coming to UCF feels like yesterday. I remember being scared and wondering how I was going to do laundry all by myself. Stepping into UCF felt like going from a fish bowl to an ocean. I had the freedom to literally do anything I wanted. Plus, I had a million resources and I was gonna live with my best friend. I've developed every aspect of me in ways I couldn't have imagined thanks to UCF and I hope to keep doing so for the rest of my time here.",
     highlight: ["Computer Science", "Algorithms & DS", "Projects & internships", "Software fundamentals"],
   },
   {
