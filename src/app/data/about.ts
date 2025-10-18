@@ -44,7 +44,7 @@ export const cardData: AboutCard[] = [
     cardtitle: "NOW",
     cardtext: 'Clicking "Start" in the game of life...',
     cardparagraph:
-      "Now, I am on the path to finding my purpose in life. Currently, I am working as a software developer for KnightHacks, the most goated club ever. I am developing my skills and learrning what it takes to be a software engineer. I hope to take these skills and apply them to the real world for an actual company and get to travel with my wife and eventually kids. I hope to also gain enough money to give back to my beautiful family and give the rest back to society, in hope of making the world a better place :)",
+      "Now, I am on the path to finding my purpose in life. Currently, I am working as a software developer for KnightHacks, the most goated club ever. I am developing my skills and learning what it takes to be a software engineer. I hope to take these skills and apply them to the real world for an actual company and get to travel with my wife and eventually kids. I hope to also gain enough money to give back to my beautiful family and give the rest back to society, in hope of making the world a better place :)",
     highlight: ["Software developer", "Continuous learning", "New technologies", "Active lifestyle", "Family & friends"],
   },
 ];

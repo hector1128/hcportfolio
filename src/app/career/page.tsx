@@ -6,6 +6,10 @@ import CareerInteractive from "./client";
 import { EXPERIENCES, LANGUAGES, FRAMEWORKS, TOOLS } from "../data/career";
 import Typewriter from "../components/type-writer";
 
+export const metadata = {
+  title: "Career",
+  content: "My work experience and skills.",
+};
 export default function Page() {
   return (
     <main className="p-6 md:p-12">

@@ -5,6 +5,7 @@ import Typewriter from "../components/type-writer";
 import ProjectsIsland from "../components/proj-island";
 import { PROJECTS } from "../data/projects";
 
+export const metadata = { title: "Projects" };
 export default function ProjectsPage() {
   return (
     <main className="p-12">

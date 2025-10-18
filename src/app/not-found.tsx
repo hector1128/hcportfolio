@@ -9,7 +9,7 @@ export default function NotFound() {
         Sorry, the page you are looking for does not exist.
       </p>
       <p className="pb-8 text-lg md:text-2xl text-[#6f4e37]">
-        Why don't you head back home?
+        Why don&apos;t you head back home?
       </p>
       <Link
         href="/"

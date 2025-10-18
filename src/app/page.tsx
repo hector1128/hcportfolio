@@ -5,6 +5,11 @@ import BackgroundDecor from "./components/background-decor";
 import NavBar from "./components/nav-bar";
 import OnMountFlag from "./components/OnMountFlag";
 
+export const metadata = {
+  title: "Home",
+  content:
+    "Welcome to my personal portfolio website! I am a Software Engineer and second year Computer Science Student at UCF. Click to learn more...",
+};
 export default function Home() {
   // Animation state for page load
   return (

@@ -5,6 +5,10 @@ import Card from "../components/card";
 import Typewriter from "../components/type-writer";
 import { cardData } from "../data/about";
 
+export const metadata = {
+  title: "About",
+  content: "A timeline of my life and experiences. Enjoy...",
+};
 export default function AboutPage() {
   return (
     <main className="min-h-screen p-12 md:p-12 bg-[#e7dfd8] relative overflow-x-hidden">
