@@ -68,3 +68,13 @@ body {
   html[data-loaded="true"] .fade-onload,
   html[data-loaded="true"] .bg-fade-onload { transition: none; transform: none; }
 }
+
+html, body {
+  overflow-x: hidden;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  [role="dialog"] {
+    -webkit-overflow-scrolling: touch;
+  }
+}

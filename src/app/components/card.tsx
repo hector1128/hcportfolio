@@ -145,7 +145,6 @@ export function ReadMore({
   highlight = [],
   layoutId,
 }: ReadMoreProps) {
-  // ESC to close
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
@@ -170,13 +169,21 @@ export function ReadMore({
       role="dialog"
       aria-modal="true"
       aria-label={`${cardtitle} details`}
-      className="fixed left-0 top-0 z-[9999] flex items-center justify-center w-[100dvw] h-[100dvh]
-                 overscroll-contain
-                 [padding:env(safe-area-inset-top)_env(safe-area-inset-right)_env(safe-area-inset-bottom)_env(safe-area-inset-left)]"
+      className="
+        fixed inset-0 z-[9999] flex items-center justify-center
+        overscroll-contain touch-pan-y overflow-x-hidden
+        [padding:env(safe-area-inset-top)_env(safe-area-inset-right)_env(safe-area-inset-bottom)_env(safe-area-inset-left)]
+      "
     >
-      {/* Backdrop */}
+      {/* Backdrop – covers the entire display viewport */}
       <motion.div
-        className="fixed left-0 top-0 w-[100dvw] h-[100dvh] bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 bg-black/60 backdrop-blur-md"
+        style={{
+          // ensure full coverage on iOS Safari
+          width: "100dvw",
+          height: "100dvh",
+          WebkitBackdropFilter: "blur(8px)",
+        }}
         onClick={onClose}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -186,7 +193,7 @@ export function ReadMore({
       <motion.div
         onClick={(e) => e.stopPropagation()}
         className="
-          relative z-10 w-[94vw] sm:w-[90vw] max-w-2xl
+          relative z-10 w-[min(94vw,42rem)]
           rounded-2xl overflow-hidden
           bg-[#fbf8f5] text-[#6f4e37]
           shadow-[0_25px_60px_-20px_rgba(20,12,7,0.55)]
@@ -195,7 +202,6 @@ export function ReadMore({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 14, scale: 0.985 }}
         transition={{ type: "spring", stiffness: 260, damping: 28 }}
-        /* use dynamic viewport on mobile */
         style={{ maxHeight: "min(88dvh, 720px)" }}
       >
         {/* Hero image */}
@@ -228,10 +234,9 @@ export function ReadMore({
           </div>
         )}
 
-        {/* Scrollable content */}
+        {/* Scrollable content (Y only) */}
         <motion.div
-          className="grid gap-6 p-6 sm:p-7 sm:grid-cols-5 overflow-auto"
-          /* panel height minus ~image height + padding; use dvh */
+          className="grid gap-6 p-6 sm:p-7 sm:grid-cols-5 overflow-y-auto overflow-x-hidden"
           style={{ maxHeight: "calc(min(88dvh, 720px) - 200px)" }}
           initial="hidden"
           animate="visible"
@@ -274,7 +279,7 @@ export function ReadMore({
           </motion.aside>
         </motion.div>
 
-        {/* Close button – respect safe-area */}
+        {/* Close button – respects safe area */}
         <button
           onClick={onClose}
           aria-label="Close"
