@@ -11,7 +11,7 @@ export const metadata = {
 };
 export default function AboutPage() {
   return (
-    <main className="min-h-screen p-12 md:p-12 bg-[#e7dfd8] relative overflow-x-hidden">
+    <main className="min-h-screen p-12 md:p-12 relative overflow-x-hidden">
       <OnMountFlag />
 
       {/* Subtle background visuals + navigation */}

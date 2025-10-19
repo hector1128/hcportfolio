@@ -12,7 +12,7 @@ export const metadata = {
 };
 export default function Page() {
   return (
-    <main className="p-6 md:p-12">
+    <main className="p-12 md:p-12">
       <OnMountFlag />
       <BackgroundDecor />
       <NavBar />
