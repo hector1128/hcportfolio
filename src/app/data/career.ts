@@ -11,32 +11,18 @@ export type Experience = {
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: "chickfila",
-    company: "Chick-fil-A",
-    role: "Team Member / Trainer",
-    years: "2023-2024",
-    logo: "/career/chickfila3.png",
-    summary: "High-volume customer service in a fast, team-oriented environment.",
+    id: "knighthacks-dev",
+    company: "KnightHacks (Development Team)",
+    role: "Software Engineer",
+    years: "Sep 2025–Present",
+    logo: "/career/kh2.png",
+    summary: "Built web experiences and tools for the hackathon community.",
     bullets: [
-      "Handled front-of-house & drive-thru during peak hours",
-      "Trained new team members on POS and service standards",
-      "Maintained prep quality and food-safety routines",
+      "Implemented responsive pages and components (Next.js + Tailwind)",
+      "Added polished UX (modals, slide-overs) with Framer Motion",
+      "Handled API calls and backend to ship features",
     ],
-    tech: ["POS", "Scheduling", "Operations"],
-  },
-  {
-    id: "varsity-tutors",
-    company: "Varsity Tutors",
-    role: "STEM Tutor (Online)",
-    years: "2024-2025",
-    logo: "/career/vt2.png",
-    summary: "1:1 online tutoring — building clear explanations and study plans.",
-    bullets: [
-      "Delivered sessions in math/CS topics with adaptive pacing",
-      "Created practice problems and review guides",
-      "Tracked progress and communicated outcomes to students/parents",
-    ],
-    tech: ["Zoom", "Digital Whiteboard", "Google Docs"],
+    tech: ["Next.js", "TypeScript", "Tailwind", "NextAuth", "Docker", "APIs"],
   },
   {
   id: "aab-styles",
@@ -53,14 +39,13 @@ export const EXPERIENCES: Experience[] = [
   ],
   tech: ["React", "Tailwind CSS", "Context API"],
 },
-
   {
     id: "jersey-mikes",
     company: "Jersey Mike's",
     role: "Crew Member",
     years: " Apr-Jun 2025",
     logo: "/career/jm2.webp",
-    summary: "Fast-paced operations — consistency, accuracy, and team coordination.",
+    summary: "Fast-paced operations. Consistency, accuracy, and team coordination.",
     bullets: [
       "Opened/closed store; prep and line during rush",
       "Handled cash and transactions with accuracy",
@@ -68,20 +53,35 @@ export const EXPERIENCES: Experience[] = [
     ],
     tech: ["POS", "Food Safety", "Inventory"],
   },
-  {
-    id: "knighthacks-dev",
-    company: "KnightHacks (Development Team)",
-    role: "Software Engineer",
-    years: "Sep 2025–Present",
-    logo: "/career/kh2.png",
-    summary: "Built web experiences and tools for the hackathon community.",
+  
+{
+    id: "varsity-tutors",
+    company: "Varsity Tutors",
+    role: "STEM Tutor (Online)",
+    years: "2024-2025",
+    logo: "/career/vt2.png",
+    summary: "1:1 online tutoring. Building clear explanations and study plans.",
     bullets: [
-      "Implemented responsive pages and components (Next.js + Tailwind)",
-      "Added polished UX (modals, slide-overs) with Framer Motion",
-      "Handled API calls and backend to ship features",
+      "Delivered sessions in math/CS topics with adaptive pacing",
+      "Created practice problems and review guides",
+      "Tracked progress and communicated outcomes to students/parents",
     ],
-    tech: ["Next.js", "TypeScript", "Tailwind", "NextAuth", "Docker", "APIs"],
+    tech: ["Zoom", "Digital Whiteboard", "Google Docs"],
   },
+  {
+    id: "chickfila",
+    company: "Chick-fil-A",
+    role: "Team Member / Trainer",
+    years: "2023-2024",
+    logo: "/career/chickfila3.png",
+    summary: "High-volume customer service in a fast, team-oriented environment.",
+    bullets: [
+      "Handled front-of-house & drive-thru during peak hours",
+      "Trained new team members on POS and service standards",
+      "Maintained prep quality and food-safety routines",
+    ],
+    tech: ["POS", "Scheduling", "Operations"],
+  }
 ];
 
 export const LANGUAGES = ["TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS"];

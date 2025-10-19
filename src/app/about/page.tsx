@@ -41,6 +41,9 @@ export default function AboutPage() {
         id="about-wrap"
         className="relative max-w-5xl mx-auto flex flex-col gap-16 px-2 pb-24"
       >
+        {/* vertical timeline bar (visible on md+) */}
+        <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-px h-full bg-[#6f4e37]/30 z-0" />
+
         {cardData.map((card, idx) => {
           const rowId = `about-card-${idx}`; // unique id per row used by Connector
           const isEven = idx % 2 === 0;
@@ -49,11 +52,30 @@ export default function AboutPage() {
             <div
               key={card.cardtitle}
               id={rowId}
-              // Stagger left/right on md+ screens; stack on mobile
-              className={`flex flex-col md:flex-row items-center ${
+              // make row relative so its marker can be absolutely positioned
+              className={`relative flex flex-col md:flex-row items-center ${
                 isEven ? "md:flex-row" : "md:flex-row-reverse"
-              }`}
+              } z-10`}
             >
+              {/* center marker that sits on the timeline (md+) */}
+              <div className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                <div className="w-4 h-4 rounded-full bg-[#6f4e37] ring-4 ring-[#e7dfd8] shadow-sm" />
+              </div>
+
+              {/* date on the opposite side of the card (md+) */}
+              <div
+                aria-hidden
+                className={`hidden md:flex absolute top-1/2 -translate-y-1/2 z-20 ${
+                  isEven
+                    ? "left-1/2 ml-6" // date to the right of marker
+                    : "left-1/2 -translate-x-full -ml-6" // date a bit left of the marker
+                }`}
+              >
+                <span className="text-sm text-[#6f4e37] bg-[#e7dfd8]/90 px-2 py-1 rounded">
+                  {card.carddate ?? "YYYY"}
+                </span>
+              </div>
+
               {/* Card column (half width on md+) */}
               <div className="w-full md:w-1/2 flex justify-center">
                 {/* Card component handles its own hover flip + “Read more” styles */}
