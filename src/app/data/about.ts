@@ -8,7 +8,7 @@ export type AboutCard = {
 
 export const cardData: AboutCard[] = [
   {
-    imglink: "/about/venezuela2.png",
+    imglink: "/about/venezuela2.PNG",
     cardtitle: "VENEZUELA",
     cardtext: "Where my journey begun...",
     cardparagraph:
