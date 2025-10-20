@@ -92,10 +92,12 @@ export default function Home() {
           <Image
             src="/home/main.jpg"
             alt="Hector Cordero"
-            width={300}
-            height={300}
-            className="align-middle md:border-2 border-[#6f4e37] shadow-2xl w-full max-w-[16rem] md:max-w-[32rem] h-auto rounded-lg transition-all duration-200 hover:scale-105 hover:drop-shadow-[0_0_16px_white]"
+            width={1024} // >= 2× your max display width
+            height={1024}
+            sizes="(min-width: 768px) 32rem, 16rem" // md: 32rem, mobile: 16rem
+            quality={90}
             priority
+            className="object-cover transform-gpu align-middle md:border-2 border-[#6f4e37] shadow-2xl w-full max-w-[16rem] md:max-w-[32rem] h-auto rounded-lg transition-all duration-200 hover:scale-105 hover:drop-shadow-[0_0_16px_white]"
           />
         </div>
 
