@@ -26,28 +26,38 @@ export const metadata: Metadata = {
     "portfolio",
   ],
 
-  openGraph: {
-    type: "website",
-    url: "/",
-    siteName: "Hector Cordero",
-    title: "Hector Cordero – Software Engineer",
-    description:
-      "Projects, experience, and contact details for Hector Cordero.",
-    images: ["/og.png"],
-    locale: "en-US",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Hector Cordero – Software Engineer",
-    description:
-      "Projects, experience, and contact details for Hector Cordero.",
-    images: ["/og.png"],
-  },
-
   alternates: { canonical: "/" },
 
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://hectorcordero.com",
+    siteName: "Hector Cordero",
+    title: "Hector Cordero – Software Engineer & UCF CS",
+    description:
+      "Projects, timeline, and contact information for Hector Cordero.",
+    images: [
+      { url: "/og.jpg", width: 1200, height: 630, alt: "Hector Cordero" },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hector Cordero – Software Engineer & UCF CS",
+    description:
+      "Projects, timeline, and contact information for Hector Cordero.",
+    images: ["/og.jpg"],
+  },
+
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -80,7 +90,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Hector Cordero",
+              url: "https://hectorcordero.com",
+              sameAs: [
+                "https://github.com/hector1128",
+                "https://www.linkedin.com/in/hectorhcordero/",
+              ],
+              jobTitle: "Software Engineer",
+              alumniOf: "University of Central Florida",
+            }),
+          }}
+        />
+      </body>
     </html>
   );
 }
