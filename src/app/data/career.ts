@@ -86,4 +86,4 @@ export const EXPERIENCES: Experience[] = [
 
 export const LANGUAGES = ["TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS"];
 export const FRAMEWORKS = ["Next.js", "React", "Node.js", "Express", "Prisma", "Tailwind"];
-export const TOOLS = ["Git", "Docker", "Figma", "Vercel", "PostgreSQL", "Supabase", "NextAuth", "APIs"];
+export const TOOLS = ["AI integration", "AWS", "Git", "Docker", "Figma", "Vercel", "PostgreSQL", "Supabase", "NextAuth", "APIs"];

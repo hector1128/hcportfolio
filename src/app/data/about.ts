@@ -8,10 +8,11 @@ export type AboutCard = {
 };
 
 export const cardData: AboutCard[] = [
+  
   {
     imglink: "/about/venezuela2.PNG",
     cardtitle: "VENEZUELA",
-    cardtext: "Where my journey begun...",
+    cardtext: "Where my journey began...",
     cardparagraph:
       "Oh man... Despite the situation, I love Venezuela. I think part of it was me being young and the nostalgia. I spent 10 years here, until my family and I were forced to move to the United States due to personal death threats (I KNOW RIGHT?). Anyways, I'm a firm believer that everything happens for a reason, so I think it was a chance to find better opportunities and a brighter future. Leaving my home country was a difficult decision, but it was one that has shaped who I am today.",
     highlight: ["South America", "New beginnings", "Family-first", "Resilience", "First Gen"],
