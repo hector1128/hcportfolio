@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://hectorcordero.com
+
+# Sitemaps
+Sitemap: https://hectorcordero.com/sitemap.xml
