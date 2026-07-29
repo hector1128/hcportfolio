@@ -3,7 +3,7 @@ import OnMountFlag from "../components/OnMountFlag";
 import BackgroundDecor from "../components/background-decor";
 import PillGrid from "../components/pill-grid";
 import CareerInteractive from "./client";
-import { EXPERIENCES, LANGUAGES, FRAMEWORKS, TOOLS } from "../data/career";
+import { EXPERIENCES, LANGUAGES, TECHNOLOGIES, CONCEPTS } from "../data/career";
 import Typewriter from "../components/type-writer";
 
 export const metadata = {
@@ -48,10 +48,10 @@ export default function Page() {
         </h2>
         <div className="grid md:grid-cols-2 gap-8 text-[#6f4e37]">
           <PillGrid title="Languages" items={LANGUAGES} />
-          <PillGrid title="Frameworks & Libraries" items={FRAMEWORKS} />
+          <PillGrid title="Technologies" items={TECHNOLOGIES} />
         </div>
         <div className="mt-8 md:mt-10 text-[#6f4e37]">
-          <PillGrid title="Tools & Platforms" items={TOOLS} />
+          <PillGrid title="Concepts" items={CONCEPTS} />
         </div>
       </section>
     </main>

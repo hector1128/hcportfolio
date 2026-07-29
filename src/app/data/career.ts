@@ -10,6 +10,22 @@ export type Experience = {
 };
 
 export const EXPERIENCES: Experience[] = [
+  
+  {
+    id: "carmax",
+    company: "CarMax",
+    role: "Software Engineering Intern",
+    years: "Jun–Aug 2025",
+    logo: "/career/carmax.jpeg",
+    summary: "Enhanced the user experience of one of CarMax's core platforms, bringing the company an estimated $1M+ in annual revenue.",
+    bullets: [
+      "Designed entire user experience for an extension of Carmax's instant offer platform",
+      "Collaborated with product and design teams to implement new features to reduce drop off rate by ~25%",
+      "Optimized local testing by migrating from Webpack to Vite",
+      "Created separate QA environment to test new mobile features before QA and prod deployment",
+    ],
+    tech: ["React.js", ".NET", "Azure DevOps", "Fullstack", "APIs", "Product development"],
+  },
   {
     id: "knighthacks-dev",
     company: "KnightHacks (Development Team)",
@@ -18,11 +34,26 @@ export const EXPERIENCES: Experience[] = [
     logo: "/career/kh2.png",
     summary: "Built web experiences and tools for the hackathon community.",
     bullets: [
-      "Implemented responsive pages and components (Next.js + Tailwind)",
-      "Added polished UX (modals, slide-overs) with Framer Motion",
-      "Handled API calls and backend to ship features",
+      "Developed skills in Next.js + Tailwind for responsive pages and components",
+      "Worked on handling API calls and backend to ship features",
+      "Learned how to protect routes and implement authentication with NextAuth",
     ],
     tech: ["Next.js", "TypeScript", "Tailwind", "NextAuth", "Docker", "APIs"],
+  },
+  
+  {
+    id: "krystal-jewels",
+    company: "Krystal Jewels",
+    role: "Co-Founder | Software Engineer",
+    years: "Sep 2025–Present",
+    logo: "/career/kj-mono.png",
+    summary: "$15K+ in revenue from a local jewelry business. Sell through e-commerce platform and in-person.",
+    bullets: [
+      "Using agents and AI to automate order processing, inventory management, and customer support",
+      "AI data pipeline to filter data and parse into a database for inventory and insights",
+      "Learned about product development, e-commerce, and marketing through hands-on experience",
+    ],
+    tech: ["Enterpeneurship", "Claude Code", "Agentic AI", "Full-stack", "AI engineering"],
   },
   {
   id: "aab-styles",
@@ -32,10 +63,10 @@ export const EXPERIENCES: Experience[] = [
   logo: "/career/aab.jpg",
   summary: "Rebuilt product and home pages; improved performance and UX for 8,000+ users.",
   bullets: [
-    "Rebuilt product/home pages using React + Tailwind",
-    "Removed blocking scripts to speed page opens and smooth first-screen render for 8,000+ users",
+    "Learnt basics of React by rebuilding product/home pages using React + Tailwind",
+    "Implemented MUI library to speed page opens and smooth first-screen render for 8,000+ users",
     "Implemented client-side filtering/sorting and image lazy loading to deliver ~200 ms updates across 150 products",
-    "Simplified navigation via React Hooks/Context, cutting checkout from 7 to 4 clicks in a sample flow",
+    "Simplified navigation, cutting checkout from 7 to 4 clicks in a sample purchase flow",
   ],
   tech: ["React", "Tailwind CSS", "Context API"],
 },
@@ -84,6 +115,6 @@ export const EXPERIENCES: Experience[] = [
   }
 ];
 
-export const LANGUAGES = ["TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS"];
-export const FRAMEWORKS = ["Next.js", "React", "Node.js", "Express", "Prisma", "Tailwind"];
-export const TOOLS = ["AI integration", "AWS", "Git", "Docker", "Figma", "Vercel", "PostgreSQL", "Supabase", "NextAuth", "APIs"];
+export const LANGUAGES = ["Python", "Java", "C", "HTML", "CSS", "Tailwind", "JavaScript", "TypeScript", "Git"];
+export const TECHNOLOGIES = ["React", "Next.js", "Azure", "Azure DevOps", "Node.js", "Prisma", "NextAuth.js", "SQL", "PostgreSQL", "Docker", "FastAPI", "GitHub Actions", "Vercel", "Firebase", "tRPC", "pnpm", "Matplotlib", "Claude Code", "Codex", "VS Code", "Excel"];
+export const CONCEPTS = ["Agentic AI", "Full-stack web development", "Databases", "DevOps", "Networking"];
