@@ -14,9 +14,14 @@ export default function Home() {
   return (
     <main className="page-shell relative">
       <div
+        /* Brown-tinted, tightly-hugging shadow matching the tiles and the
+           projects featured card. The previous shadow-2xl offset a heavy
+           25%-black slab 25px downward, which read as a hard grey bar under
+           the card rather than an elevation cue. */
         className="fade-onload mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-6
-                   rounded-xl border border-brand/25 bg-canvas/40 p-5 shadow-lg
-                   md:mt-10 md:grid-cols-2 md:gap-8 md:p-10 md:shadow-2xl"
+                   rounded-xl border border-brand/25 bg-canvas/70 p-5
+                   shadow-[0_18px_40px_-16px_rgba(91,58,41,0.35)]
+                   md:mt-10 md:grid-cols-2 md:gap-8 md:p-10"
       >
         {/* Left column: name + typewriter. order-2 puts it under the
             photo on mobile, back to the left at md+. */}
