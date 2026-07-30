@@ -36,8 +36,9 @@ export default function Page() {
         <section className="mt-12 md:mt-20">
           <h2 className="mb-6 text-h2 font-semibold text-brand">Skills</h2>
           <div className="grid gap-6 text-brand md:grid-cols-2 md:gap-8">
-            <PillGrid title="Languages" items={LANGUAGES} />
             <PillGrid title="Technologies" items={TECHNOLOGIES} />
+            <PillGrid title="Languages" items={LANGUAGES} />
+            
           </div>
           <div className="mt-6 text-brand md:mt-10">
             <PillGrid title="Concepts" items={CONCEPTS} />

@@ -116,5 +116,5 @@ export const EXPERIENCES: Experience[] = [
 ];
 
 export const LANGUAGES = ["Python", "Java", "C", "HTML", "CSS", "Tailwind", "JavaScript", "TypeScript", "Git"];
-export const TECHNOLOGIES = ["React", "Next.js", "Azure", "Azure DevOps", "Node.js", "Prisma", "NextAuth.js", "SQL", "PostgreSQL", "Docker", "FastAPI", "GitHub Actions", "Vercel", "Firebase", "tRPC", "pnpm", "Matplotlib", "Claude Code", "Codex", "VS Code", "Excel"];
+export const TECHNOLOGIES = ["React", "Next.js", "Azure", "Azure DevOps", "Node.js", "Prisma", "NextAuth.js", "SQL", "PostgreSQL", "Docker", "FastAPI", "GitHub Actions", "Vercel", "Firebase", "tRPC", "pnpm", "Matplotlib", "Claude Code", "Codex", "Figma", "VS Code", "Excel"];
 export const CONCEPTS = ["Agentic AI", "Full-stack web development", "Databases", "DevOps", "Networking"];
