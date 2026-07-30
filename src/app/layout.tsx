@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import NavBar from "./components/nav-bar";
+import BackgroundDecor from "./components/background-decor";
+import OnMountFlag from "./components/OnMountFlag";
 
 export const metadata: Metadata = {
   //TO DO!!!!
@@ -46,16 +49,13 @@ export const metadata: Metadata = {
     title: "Hector Cordero – Software Engineer & UCF CS",
     description:
       "Projects, timeline, and contact information for Hector Cordero.",
-    images: [
-      { url: "/og.jpg", width: 1200, height: 630, alt: "Hector Cordero" },
-    ],
+    // image comes from app/opengraph-image.tsx (file convention)
   },
   twitter: {
     card: "summary_large_image",
     title: "Hector Cordero – Software Engineer & UCF CS",
     description:
       "Projects, timeline, and contact information for Hector Cordero.",
-    images: ["/og.jpg"],
   },
 
   icons: {
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
   display: "swap",
 });
@@ -91,6 +91,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
+        {/* Shell — lifted out of the individual pages so it is declared once
+            and every future page inherits correct mobile behaviour. */}
+        <OnMountFlag />
+        <BackgroundDecor />
+        <NavBar />
         {children}
         <script
           type="application/ld+json"

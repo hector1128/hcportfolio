@@ -1,17 +1,71 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Design tokens
+   Single source of truth for the palette. Each entry generates
+   the matching bg-, text-, border- and ring- utilities:
+   canvas, surface, surface-raised, brand, brand-strong,
+   brand-soft, ink, on-brand.
+   ============================================================ */
+@theme {
+  --color-canvas: #f6eee6; /* page background */
+  --color-surface: #e7dfd8; /* cards, tiles */
+  --color-surface-raised: #fbf8f5; /* modals, sheets */
 
-:root {
-  --background: #F6EEE6;
-  --foreground: #e7dfd8;
-  --text: #5B3A29;
-  --muted: #8C6A55;         /* for borders/icons        /* teal accent for CTAs/links */
+  --color-brand: #6f4e37; /* primary brown */
+  --color-brand-strong: #4b3526; /* headings */
+  --color-brand-soft: #8c6a55; /* muted text, borders */
+
+  --color-ink: #5b3a29; /* body text */
+  --color-on-brand: #e7dfd8; /* text on brown surfaces */
+
+  --font-sans: var(--font-poppins);
+
+  /* Fluid type scale — shrinks on small screens without a
+     breakpoint per size. Min values are the mobile sizes. */
+  --text-display: clamp(2rem, 1.35rem + 3.2vw, 3.75rem);
+  --text-h1: clamp(1.75rem, 1.35rem + 2vw, 3rem);
+  --text-h2: clamp(1.5rem, 1.28rem + 1.1vw, 1.875rem);
+  --text-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-body: clamp(1rem, 0.97rem + 0.15vw, 1.125rem);
 }
-body { color: var(--text); background: var(--bg); }
-.button-primary { background: var(--accent); color: white; }
-a { color: var(--accent); }
-.border { border-color: color-mix(in srgb, var(--muted) 60%, transparent); }
 
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+/* ============================================================
+   Page shell — replaces the flat `p-12` that left only ~215px
+   of usable width on a 375px phone. Bottom padding clears the
+   fixed mobile tab bar and the iOS home indicator.
+   ============================================================ */
+.page-shell {
+  padding-inline: 1rem;
+  padding-block-start: 1.5rem;
+  padding-block-end: calc(5.5rem + env(safe-area-inset-bottom));
+}
+@media (min-width: 640px) {
+  .page-shell {
+    padding-inline: 1.5rem;
+    padding-block-start: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  /* tab bar is gone at md+, so no clearance needed */
+  .page-shell {
+    padding-block-end: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .page-shell {
+    padding-inline: 3rem;
+  }
+}
+
+/* ============================================================
+   Animation
+   ============================================================ */
 @keyframes dotmove {
   0% {
     transform: translate(0px, 0px);
@@ -24,52 +78,64 @@ a { color: var(--accent); }
   animation: dotmove 8s linear infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-poppins);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #e7dfd8;
-    --foreground: #fefafa;
+@keyframes blink {
+  to {
+    visibility: hidden;
   }
 }
-
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  /* pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite */
+.animate-blink {
+  animation: blink 1s steps(2, start) infinite;
 }
 
-.animate-blink { animation: blink 1s steps(2, start) infinite; }
-
-@keyframes blink { to { visibility: hidden; } }
-
-/* globals.css */
 @layer utilities {
-  .fade-onload     { opacity: 0; transform: translateY(8px); }
+  .fade-onload {
+    opacity: 0;
+    transform: translateY(8px);
+  }
   html[data-loaded="true"] .fade-onload {
-    opacity: 1; transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 700ms ease, transform 700ms ease;
   }
 
-  .bg-fade-onload  { opacity: 0; transform: translateY(8px); }
+  .bg-fade-onload {
+    opacity: 0;
+    transform: translateY(8px);
+  }
   html[data-loaded="true"] .bg-fade-onload {
-    opacity: 1; transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 1000ms ease, transform 1000ms ease;
+  }
+
+  /* Safe-area helpers — viewportFit: "cover" is set in layout.tsx,
+     so without these, content slides under the notch/home indicator. */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
   }
 }
 
-/* Accessibility: respect reduced motion */
+/* ============================================================
+   Accessibility
+   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   html[data-loaded="true"] .fade-onload,
-  html[data-loaded="true"] .bg-fade-onload { transition: none; transform: none; }
+  html[data-loaded="true"] .bg-fade-onload {
+    transition: none;
+    transform: none;
+  }
+  /* infinite full-screen SVG animation is a battery cost on phones */
+  .animate-dotmove,
+  .animate-blink {
+    animation: none;
+  }
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 

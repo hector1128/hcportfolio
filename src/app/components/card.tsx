@@ -51,53 +51,58 @@ export default function Card({
 
   return (
     <LayoutGroup>
-      <main>
+      <div className="w-full">
         <div
           className={[
-            "fade-onload rounded-xl shadow-lg bg-[#6f4e37] text-[#e7dfd8] transition-all duration-500 hover:bg-transparent hover:text-[#6f4e37] group",
+            "fade-onload group w-full overflow-hidden rounded-xl bg-brand text-on-brand shadow-lg transition-all duration-500",
+            // hover never fires on touch, and iOS makes it stick after a tap,
+            // so the colour swap is gated to devices that actually hover
+            "[@media(hover:hover)]:hover:bg-transparent [@media(hover:hover)]:hover:text-brand",
+            "active:scale-[0.99]",
             generated ? "scale-[0.99] opacity-95" : "",
           ].join(" ")}
         >
-          {/* Shared element wrapper for smooth image morph */}
           <motion.div layoutId={layoutId} className="relative">
             <Image
               src={imglink}
               alt={cardtitle}
               width={400}
               height={250}
-              className="rounded-t-xl transition-all duration-500 group-hover:opacity-80"
+              sizes="(min-width: 768px) 400px, 100vw"
+              /* w-full h-auto: without these the img rendered at its
+                 intrinsic 400px inside a much narrower mobile column */
+              className="h-auto w-full rounded-t-xl object-cover transition-all duration-500 [@media(hover:hover)]:group-hover:opacity-80"
               priority={false}
             />
           </motion.div>
 
           <div className="p-5">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight group-hover:text-[#6f4e37]">
+            <h5 className="mb-2 text-h3 font-bold tracking-tight [@media(hover:hover)]:group-hover:text-brand">
               {cardtitle}
             </h5>
-            <p className="mb-3 font-normal group-hover:text-[#6f4e37]">
+            <p className="mb-4 font-normal [@media(hover:hover)]:group-hover:text-brand">
               {cardtext}
             </p>
             <button
               onClick={() => setGenerated(true)}
               className="
-                cursor-pointer relative inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg
-                border bg-[#6f4e37] text-[#e7dfd8] border-[#6f4e37]
+                relative inline-flex min-h-11 cursor-pointer items-center gap-2 overflow-hidden rounded-lg
+                border border-brand bg-brand px-4 py-2.5 text-sm font-semibold text-on-brand
                 transition-[transform,box-shadow,color,background-color] duration-300 ease-out
                 hover:scale-[1.03] hover:shadow-[0_10px_24px_-8px_rgba(91,58,41,0.45)]
-                overflow-hidden
-                before:absolute before:inset-0 before:rounded-[inherit] before:pointer-events-none
-                before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)]
-                before:translate-x-[-120%] before:transition-transform before:duration-700
-                hover:before:translate-x-[120%]
-                group-hover:!bg-[#6f4e37] group-hover:!text-[#e7dfd8] group-hover:!border-[#6f4e37]
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6f4e37]/40
-                focus-visible:ring-offset-2 focus-visible:ring-offset-[#e7dfd8]
+                before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit]
+                before:translate-x-[-120%] before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)]
+                before:transition-transform before:duration-700 hover:before:translate-x-[120%]
+                [@media(hover:hover)]:group-hover:!border-brand [@media(hover:hover)]:group-hover:!bg-brand
+                [@media(hover:hover)]:group-hover:!text-on-brand
+                focus-visible:ring-2 focus-visible:ring-brand/40 focus-visible:ring-offset-2
+                focus-visible:ring-offset-surface focus-visible:outline-none
               "
-              aria-label="Read more"
+              aria-label={`Read more about ${cardtitle}`}
             >
               Read more
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="h-4 w-4 transition-transform duration-300 [@media(hover:hover)]:group-hover:translate-x-1"
                 viewBox="0 0 14 10"
                 fill="none"
                 aria-hidden="true"
@@ -115,7 +120,6 @@ export default function Card({
           </div>
         </div>
 
-        {/* Portal the modal so nothing overlaps it */}
         {mounted &&
           createPortal(
             <AnimatePresence>
@@ -132,7 +136,7 @@ export default function Card({
             </AnimatePresence>,
             document.body
           )}
-      </main>
+      </div>
     </LayoutGroup>
   );
 }
@@ -169,17 +173,12 @@ export function ReadMore({
       role="dialog"
       aria-modal="true"
       aria-label={`${cardtitle} details`}
-      className="
-        fixed inset-0 z-[9999] flex items-center justify-center
-        overscroll-contain touch-pan-y overflow-x-hidden
-        [padding:env(safe-area-inset-top)_env(safe-area-inset-right)_env(safe-area-inset-bottom)_env(safe-area-inset-left)]
-      "
+      /* items-end -> bottom sheet on mobile; centred dialog at sm+ */
+      className="fixed inset-0 z-[9999] flex items-end justify-center overscroll-contain sm:items-center"
     >
-      {/* Backdrop – covers the entire display viewport */}
       <motion.div
         className="fixed inset-0 bg-black/60 backdrop-blur-md"
         style={{
-          // ensure full coverage on iOS Safari
           width: "100dvw",
           height: "100dvh",
           WebkitBackdropFilter: "blur(8px)",
@@ -192,99 +191,91 @@ export function ReadMore({
 
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className="
-          relative z-10 w-[min(94vw,42rem)]
-          rounded-2xl overflow-hidden
-          bg-[#fbf8f5] text-[#6f4e37]
-          shadow-[0_25px_60px_-20px_rgba(20,12,7,0.55)]
-        "
+        /* flex column with a min-h-0 scroll child, so the body sizes itself.
+           Previously the height was computed as `calc(... - 200px)`, a
+           hardcoded guess at the hero height that broke on short screens. */
+        className="relative z-10 flex max-h-[88dvh] w-full flex-col overflow-hidden rounded-t-2xl
+                   bg-surface-raised text-brand shadow-[0_25px_60px_-20px_rgba(20,12,7,0.55)]
+                   sm:max-h-[min(88dvh,720px)] sm:w-[min(94vw,42rem)] sm:rounded-2xl"
         initial={{ opacity: 0, y: 18, scale: 0.985 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 14, scale: 0.985 }}
         transition={{ type: "spring", stiffness: 260, damping: 28 }}
-        style={{ maxHeight: "min(88dvh, 720px)" }}
       >
-        {/* Hero image */}
-        {layoutId ? (
-          <motion.div
-            layoutId={layoutId}
-            className="relative w-full h-[180px] sm:h-[220px] md:h-[240px]"
-          >
-            <Image
-              src={imglink}
-              alt={cardtitle}
-              fill
-              sizes="(max-width: 640px) 94vw, (max-width: 1024px) 90vw, 640px"
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#fbf8f5] via-transparent to-transparent" />
-          </motion.div>
-        ) : (
-          <div className="relative w-full h-[180px] sm:h-[220px] md:h-[240px]">
-            <Image
-              src={imglink}
-              alt={cardtitle}
-              fill
-              sizes="(max-width: 640px) 94vw, (max-width: 1024px) 90vw, 640px"
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#fbf8f5] via-transparent to-transparent" />
-          </div>
-        )}
+        {/* Grabber */}
+        <div aria-hidden className="flex shrink-0 justify-center pt-2.5 sm:hidden">
+          <span className="h-1 w-10 rounded-full bg-brand/25" />
+        </div>
 
-        {/* Scrollable content (Y only) */}
+        {/* Hero */}
         <motion.div
-          className="grid gap-6 p-6 sm:p-7 sm:grid-cols-5 overflow-y-auto overflow-x-hidden"
-          style={{ maxHeight: "calc(min(88dvh, 720px) - 200px)" }}
+          layoutId={layoutId}
+          className="relative h-[160px] w-full shrink-0 sm:h-[220px] md:h-[240px]"
+        >
+          <Image
+            src={imglink}
+            alt={cardtitle}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 640px"
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface-raised via-transparent to-transparent" />
+        </motion.div>
+
+        {/* Body — min-h-0 lets this flex child actually scroll */}
+        <motion.div
+          className="grid min-h-0 flex-1 gap-6 overflow-x-hidden overflow-y-auto p-5
+                     pb-[calc(1.25rem+env(safe-area-inset-bottom))] sm:grid-cols-5 sm:p-7"
           initial="hidden"
           animate="visible"
           transition={{ staggerChildren: 0.06, delayChildren: 0.02 }}
         >
           <motion.div variants={itemVariants} className="sm:col-span-3">
-            <h3 className="text-2xl font-semibold tracking-tight text-[#4b3526]">
+            <h3 className="text-h2 font-semibold tracking-tight text-brand-strong">
               {cardtitle}
             </h3>
             <p className="mt-3 leading-relaxed">{cardparagraph}</p>
           </motion.div>
 
           <motion.aside variants={itemVariants} className="sm:col-span-2">
-            <div className="rounded-2xl bg-white/80 p-4 ring-1 ring-[#6f4e37]/10">
-              <p className="text-sm font-semibold uppercase tracking-wide">
+            <div className="rounded-2xl bg-white/80 p-4 ring-1 ring-brand/10">
+              <p className="text-sm font-semibold tracking-wide uppercase">
                 Highlights
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {chips.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-[#6f4e37]/20 bg-[#e7dfd8]/70 px-2.5 py-1 text-xs"
+                    className="rounded-full border border-brand/20 bg-surface/70 px-2.5 py-1 text-xs"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <div className="mt-4 h-px bg-gradient-to-r from-transparent via-[#6f4e37]/15 to-transparent" />
+              <div className="mt-4 h-px bg-gradient-to-r from-transparent via-brand/15 to-transparent" />
 
-              <div className="mt-4 space-y-2">
-                <button
-                  onClick={onClose}
-                  className="w-full cursor-pointer rounded-lg border border-[#6f4e37] bg-[#6f4e37] px-4 py-2 text-sm font-semibold text-[#e7dfd8] transition hover:shadow-[0_12px_24px_-12px_rgba(91,58,41,0.55)]"
-                >
-                  Close
-                </button>
-              </div>
+              <button
+                onClick={onClose}
+                className="mt-4 min-h-11 w-full cursor-pointer rounded-lg border border-brand bg-brand
+                           px-4 py-2.5 text-sm font-semibold text-on-brand transition
+                           hover:shadow-[0_12px_24px_-12px_rgba(91,58,41,0.55)]"
+              >
+                Close
+              </button>
             </div>
           </motion.aside>
         </motion.div>
 
-        {/* Close button – respects safe area */}
+        {/* Close affordance. The safe-area inset was previously applied here,
+            but this button sits inside the sheet, not the viewport. */}
         <button
           onClick={onClose}
           aria-label="Close"
-          className="cursor-pointer absolute rounded-full bg-black/40 p-2 text-white backdrop-blur hover:bg-black/50
-                     [top:calc(env(safe-area-inset-top)+0.75rem)] [right:calc(env(safe-area-inset-right)+0.75rem)]"
+          className="absolute top-3 right-3 grid h-11 w-11 cursor-pointer place-items-center rounded-full
+                     bg-black/40 text-white backdrop-blur transition hover:bg-black/50
+                     focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none"
         >
           ✕
         </button>

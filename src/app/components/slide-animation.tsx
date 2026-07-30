@@ -1,9 +1,34 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { type Experience } from "../data/career";
+
+/* A right-edge drawer is a desktop pattern — at 92vw on a phone it is
+   effectively fullscreen anyway. Below md we slide up from the bottom
+   instead, matching the sheet pattern used on About. */
+const MOBILE_QUERY = "(max-width: 767px)";
+
+function useIsMobile() {
+  /* Resolved in the state initialiser rather than an effect: this panel only
+     ever mounts client-side (after a tap), so the very first render must
+     already know the direction. Reading it in an effect meant framer applied
+     the desktop x:100% transform first and never cleared it, leaving the
+     sheet parked off-screen. */
+  const [isMobile, setIsMobile] = useState(
+    () =>
+      typeof window !== "undefined" && window.matchMedia(MOBILE_QUERY).matches
+  );
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  return isMobile;
+}
 
 export default function SlideOver({
   exp,
@@ -12,12 +37,18 @@ export default function SlideOver({
   exp: Experience;
   onClose: () => void;
 }) {
+  const isMobile = useIsMobile();
+
   // ESC to close
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  const motionProps = isMobile
+    ? { initial: { y: "100%" }, animate: { y: 0 }, exit: { y: "100%" } }
+    : { initial: { x: "100%" }, animate: { x: 0 }, exit: { x: "100%" } };
 
   return (
     <>
@@ -31,35 +62,45 @@ export default function SlideOver({
         aria-hidden="true"
       />
 
-      {/* Panel */}
+      {/* Panel: bottom sheet on mobile, right drawer at md+ */}
       <motion.aside
-        className="fixed right-0 top-0 z-50 h-dvh w-[92vw] max-w-xl bg-[#6f4e37] text-[#e7dfd8] shadow-2xl border-l border-white/10 flex flex-col"
-        initial={{ x: "100%" }}
-        animate={{ x: 0 }}
-        exit={{ x: "100%" }}
+        className="fixed z-50 flex flex-col bg-brand text-on-brand shadow-2xl
+                   inset-x-0 bottom-0 max-h-[88dvh] rounded-t-2xl border-t border-white/10
+                   md:inset-x-auto md:top-0 md:right-0 md:h-dvh md:max-h-none md:w-[92vw] md:max-w-xl
+                   md:rounded-t-none md:border-t-0 md:border-l"
+        {...motionProps}
         transition={{ type: "spring", stiffness: 260, damping: 28 }}
         role="dialog"
         aria-modal="true"
         aria-label={`${exp.company} — details`}
       >
-        <header className="flex items-center justify-between p-4 border-b border-white/10">
-          <div>
-            <h3 className="text-xl font-bold leading-tight">{exp.company}</h3>
+        {/* Grabber — signals the sheet is dismissable on touch */}
+        <div aria-hidden className="flex justify-center pt-2.5 md:hidden">
+          <span className="h-1 w-10 rounded-full bg-on-brand/40" />
+        </div>
+
+        <header className="flex items-center justify-between gap-3 border-b border-white/10 p-4">
+          <div className="min-w-0">
+            <h3 className="truncate text-h3 leading-tight font-bold">
+              {exp.company}
+            </h3>
             <p className="text-sm opacity-90">
               {exp.role} • {exp.years}
             </p>
           </div>
           <button
             onClick={onClose}
-            className="cursor-pointer rounded-lg px-3 py-1.5 bg-black/20 hover:bg.black/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            className="grid h-11 w-11 shrink-0 cursor-pointer place-items-center rounded-lg bg-black/20
+                       transition hover:bg-black/30 focus-visible:ring-2 focus-visible:ring-white/40
+                       focus-visible:outline-none"
             aria-label="Close panel"
           >
             ✕
           </button>
         </header>
 
-        <div className="p-5 space-y-4 overflow-y-auto">
-          <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden ring-1 ring-white/10 bg-[#e7dfd8]">
+        <div className="space-y-4 overflow-y-auto p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
+          <div className="relative aspect-[3/2] w-full overflow-hidden rounded-xl bg-surface ring-1 ring-white/10">
             <Image
               src={exp.logo}
               alt={exp.company}
@@ -72,7 +113,7 @@ export default function SlideOver({
           <p className="leading-relaxed">{exp.summary}</p>
 
           {exp.bullets && (
-            <ul className="list-disc pl-5 space-y-1">
+            <ul className="list-disc space-y-1 pl-5">
               {exp.bullets.map((b, i) => (
                 <li key={i} className="opacity-95">
                   {b}
@@ -83,14 +124,14 @@ export default function SlideOver({
 
           {exp.tech && (
             <div>
-              <h4 className="text-sm font-semibold uppercase tracking-wider opacity-90 mb-2">
+              <h4 className="mb-2 text-sm font-semibold tracking-wider uppercase opacity-90">
                 Tech/Skills
               </h4>
               <div className="flex flex-wrap gap-2">
                 {exp.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-2.5 py-1 rounded-full text-xs bg-[#e7dfd8] text-[#6f4e37] ring-1 ring-black/10"
+                    className="rounded-full bg-surface px-2.5 py-1 text-xs text-brand ring-1 ring-black/10"
                   >
                     {t}
                   </span>

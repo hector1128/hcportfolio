@@ -31,7 +31,9 @@ export default function CareerInteractive({
       <div
         className={[
           "grid gap-4 sm:gap-6 md:gap-8",
-          "grid-cols-2 md:grid-cols-3",
+          // one column on the narrowest screens: with labels now always
+          // visible, two square tiles per row left too little room
+          "grid-cols-1 sm:grid-cols-2 md:grid-cols-3",
           activeId ? "opacity-60 pointer-events-none" : "",
         ].join(" ")}
       >

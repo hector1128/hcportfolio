@@ -30,7 +30,7 @@ export default function Typewriter({
   return (
     <p className={design} aria-label={text}>
       {displayed}
-      <span className="inline-block w-2 text-[#6f4e37]">
+      <span className="inline-block w-2 text-brand">
         {showCursor ? (
           <span className="animate-blink">|</span>
         ) : (
