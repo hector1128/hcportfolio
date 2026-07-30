@@ -6,7 +6,7 @@ export const PROJECTS: Project[] = [
     title: "FirstStep",
     blurb:
       "Automated internship and job scraping platform that routes targeted listings to students. An async Apify pipeline pulls 150+ live roles daily into Postgres, with real-time client filtering and email digests sent on a cron schedule.",
-    hero: "/projects/test.png",
+    hero: "/projects/first-step.png",
     tags: ["250+ users", "Job scraping", "Async pipeline", "Email digests", "5 industries"],
     stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Apify", "Resend", "Vercel Crons", "Tailwind"],
     links: {
