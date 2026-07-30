@@ -47,7 +47,7 @@ export default function Home() {
                          focus-visible:ring-offset-2 focus-visible:ring-offset-canvas focus-visible:outline-none"
             >
               <ResumeIcon />
-              View Résumé
+              View Resume
             </Link>
 
             <div className="flex gap-3">
@@ -71,11 +71,14 @@ export default function Home() {
             alt="Hector Cordero"
             width={1024}
             height={1024}
-            sizes="(min-width: 768px) 32rem, 60vw"
+            sizes="(min-width: 768px) 32rem, 100vw"
             quality={90}
             priority
-            className="h-auto w-full max-w-[13rem] rounded-lg border-2 border-brand/70 object-cover
-                       shadow-lg transition-all duration-200 sm:max-w-[16rem]
+            /* Below md the image fills the card's content box edge to edge —
+               the card's own p-5 supplies the breathing room. The old
+               max-w-[13rem]/16rem caps left it floating in the middle. */
+            className="h-auto w-full rounded-lg border-2 border-brand/70 object-cover
+                       shadow-lg transition-all duration-200
                        md:max-w-[32rem] md:shadow-2xl md:hover:scale-105
                        md:hover:drop-shadow-[0_0_16px_white]"
           />

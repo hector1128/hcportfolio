@@ -59,6 +59,8 @@ const ITEMS: Item[] = [
   },
 ];
 
+/* Only rendered by the mobile tab bar — the desktop pill bar is labels
+   only — so this size is a mobile-only concern. */
 function Icon({ children }: { children: React.ReactNode }) {
   return (
     <svg
@@ -67,7 +69,7 @@ function Icon({ children }: { children: React.ReactNode }) {
       stroke="currentColor"
       strokeWidth="1.75"
       aria-hidden="true"
-      className="h-5 w-5"
+      className="h-6 w-6"
     >
       {children}
     </svg>
@@ -95,22 +97,22 @@ export default function NavBar() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={[
-                    // min-h-14 = 56px, comfortably above the 44px touch floor
-                    "relative flex min-h-14 flex-col items-center justify-center gap-1 px-1 text-on-brand transition-opacity",
+                    // min-h-16 = 64px, well above the 44px touch floor
+                    "relative flex min-h-16 flex-col items-center justify-center gap-1.5 px-1 text-on-brand transition-opacity",
                     active ? "opacity-100" : "opacity-60",
                   ].join(" ")}
                 >
                   <span
                     aria-hidden
                     className={[
-                      "absolute inset-x-0 top-0 mx-auto h-0.5 w-8 rounded-full bg-on-brand transition-opacity",
+                      "absolute inset-x-0 top-0 mx-auto h-0.5 w-10 rounded-full bg-on-brand transition-opacity",
                       active ? "opacity-100" : "opacity-0",
                     ].join(" ")}
                   />
                   <Icon>{item.icon}</Icon>
                   <span
                     className={[
-                      "text-[11px] leading-none tracking-wide",
+                      "text-xs leading-none tracking-wide",
                       active ? "font-bold" : "font-medium",
                     ].join(" ")}
                   >

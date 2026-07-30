@@ -85,10 +85,16 @@ export default function Card({
             </p>
             <button
               onClick={() => setGenerated(true)}
+              /* Resting fill is inverted (light chip on the brown card).
+                 It used to be bg-brand on a bg-brand card, so the button was
+                 invisible until the card's desktop hover flipped it — on
+                 touch, where that hover never fires, it read as plain text. */
               className="
                 relative inline-flex min-h-11 cursor-pointer items-center gap-2 overflow-hidden rounded-lg
-                border border-brand bg-brand px-4 py-2.5 text-sm font-semibold text-on-brand
+                border border-on-brand bg-on-brand px-4 py-2.5 text-sm font-semibold text-brand
+                shadow-[0_2px_6px_-1px_rgba(20,12,7,0.35)]
                 transition-[transform,box-shadow,color,background-color] duration-300 ease-out
+                active:scale-[0.97]
                 hover:scale-[1.03] hover:shadow-[0_10px_24px_-8px_rgba(91,58,41,0.45)]
                 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit]
                 before:translate-x-[-120%] before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent)]

@@ -13,7 +13,7 @@ export const cardData: AboutCard[] = [
     cardtitle: "VENEZUELA",
     cardtext: "Where my journey began...",
     cardparagraph:
-      "Oh man... Despite its current situation, I love Venezuela. The nostalgia comes from the vivid, beautiful memories of my childhood. We moved to the U.S. when I was ten. My family saught new opportunities for my siter and I in the US, deciding it was best for our future. I’m a firm believer that everything happens for a reason, so I have nothing but gratitude to my parents for taking that step. Leaving home was hard, but it shaped who I am today.",
+      "Oh man... Despite its current situation, I love Venezuela. The nostalgia comes from the vivid, beautiful memories of my childhood. We moved to the U.S. when I was ten. My family saught new opportunities for my sister and I in the US, deciding it was best for our future. I’m a firm believer that everything happens for a reason, so I have nothing but gratitude to my parents for taking that step. Leaving home was hard, but it shaped who I am today.",
     highlight: ["South America", "New beginnings", "Family-first", "Resilience", "First Gen"],
     carddate: "2006–2016",
   },
@@ -22,7 +22,7 @@ export const cardData: AboutCard[] = [
     cardtitle: "UNITED STATES",
     cardtext: "Adapting, learning, and finding my voice",
     cardparagraph:
-      "The culture change was strange to a young Hector. I battled culture shock, accents, and a sense of starting from zero. But day by day, I learned, listened, and adapted. Adapting taught me a lot of valuable lessons and is part of my identity as a latino.That early transition taught me how to handle pressure, communicate across differences, and keep moving forward—even when everything felt unfamiliar.",
+      "The culture change was strange to a young Hector. I battled culture shock, accents, and a sense of starting from zero. But day by day, I learned, listened, and adapted. Adapting taught me a lot of valuable lessons and is part of my identity as a latino. That early transition taught me how to handle pressure, communicate across differences, and keep moving forward, even when everything felt unfamiliar.",
     highlight: ["Adaptation", "ESL & culture shock", "Grit", "Community", "Growth mindset"],
     carddate: "2016–2018",
   },
