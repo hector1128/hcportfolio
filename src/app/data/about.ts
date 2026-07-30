@@ -49,7 +49,7 @@ export const cardData: AboutCard[] = [
     cardtitle: "NOW",
     cardtext: 'Clicking "Start" in the game of life...',
     cardparagraph:
-      "Here I am, a software engineer in the making—fueled by curiosity and a drive to build cool stuff. Every line of code is a new challenge, a puzzle to solve, and an opportunity to grow. I want to use AI to create tools that make life easier and more meaningful for others. Outside of coding, I’m big on staying active, spending time with friends and family, and just enjoying life. The journey’s just starting, and I’m excited for what’s next.",
+      "Here I am, a software engineer in the making—fueled by curiosity and a drive to build cool stuff. Now it feels like everything is a new challenge, a puzzle to solve, and an opportunity to grow. I want to use new technololgies and AI to create tools that make life easier and more meaningful for others. Outside of coding, I’m big on staying active, spending time with friends and family, and just enjoying life. The journey’s just starting, and I’m excited for what’s next.",
     highlight: ["Software developer", "Continuous learning", "New technologies", "Active lifestyle", "Family & friends"],
     carddate: "2025...",
   },
