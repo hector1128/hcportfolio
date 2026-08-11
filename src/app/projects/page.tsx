@@ -5,7 +5,7 @@ import { PROJECTS } from "../data/projects";
 export const metadata = {
   title: "Projects",
   description:
-    "Personal projects showing my progression as a developer — FirstStep, InvestEd, MOVE and InsureFair.",
+    "Personal projects showing my progression as a developer — Trackr, FirstStep, InvestEd, MOVE and InsureFair.",
 };
 
 export default function ProjectsPage() {

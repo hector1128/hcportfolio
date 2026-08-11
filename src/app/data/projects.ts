@@ -2,12 +2,22 @@ import type { Project } from "../components/proj-island";
 
 export const PROJECTS: Project[] = [
   {
+    id: "trackr",
+    title: "Trackr",
+    blurb:
+      "Real-time fleet-tracking platform for CarMax's logistics team. Featured live-ops dashboard with an interactive map, filterable alerts, and per-truck detail views for 150+ trucks.",
+    hero: "/projects/trackr.png",
+    tags: ["3rd place", "Azure Event Hub", "Azure Functions", "Azure Cosmos DB", "React.js", "Azure Maps"],
+    stack: ["3rd place", "Azure Event Hub", "Azure Functions", "Azure Cosmos DB", "React.js", "Azure Maps"],
+    year: "2026",
+  },
+  {
     id: "firststep",
     title: "FirstStep",
     blurb:
       "Automated internship and job scraping platform that routes targeted internship and new grad listings to students at UCF. An async Apify pipeline pulls 150+ live roles daily into Postgres, with real-time client filtering and email digests sent on a cron schedule.",
     hero: "/projects/first-step.png",
-    tags: ["250+ users", "Community", "API", "System Design"],
+    tags: ["250+ users", "Community", "API", "System Design", "Next.js", "TypeScript", "Supabase", "PostgreSQL", "Apify", "Resend", "Vercel Crons", "Tailwind"],
     stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Apify", "Resend", "Vercel Crons", "Tailwind"],
     links: {
       repo: "https://github.com/hector1128/firststep",
@@ -20,7 +30,7 @@ export const PROJECTS: Project[] = [
     blurb:
       "Infrastructure monorepo for my club. My main contributions are to two. Blade, a monolith-repo used for handling memberships, internal tools, and hackathons. The second is Knight Hacks VIII hackathon site, a UI/UX-focused site.",
     hero: "/projects/forge.png",
-    tags: ["Leadership", "Community", "Open-Source"],
+    tags: ["Leadership", "Community", "Open-Source", "Next.js", "Docker", "Zod", "APIs"],
     stack: ["Next.js", "TypeScript", "Tailwind", "NextAuth", "Docker", "APIs"],
     year: "2025–Present",
   },
@@ -30,7 +40,7 @@ export const PROJECTS: Project[] = [
     blurb:
       "AI-powered FinTech web app that simplifies investing for beginners. Features personalized investment recommendations, portfolio tracking, and educational resources to empower users in their financial journey.",
     hero: "/projects/invested.png", 
-    tags: ["KnightHacks 2025", "AI", "FinTech", "S&P/ETF/crypto", "3rd place"],
+    tags: ["KnightHacks 2025", "AI", "FinTech", "S&P/ETF/crypto", "3rd place", "Next.js", "TypeScript", "Gemini API", "Zustand", "shadcn", "Tailwind"],
     stack: ["Next.js", "TypeScript", "Gemini API", "Zustand", "shadcn", "Tailwind"],
     links: {
       
@@ -45,7 +55,7 @@ export const PROJECTS: Project[] = [
     blurb:
       "On-device computer-vision dodge game built for people who work at home. Uses pose tracking to get remote workers moving; tuned with EMA/hysteresis to reduce false hits and ramps difficulty progressively.",
     hero: "/projects/move1.png", 
-    tags: ["ShellHacks 2025", "On-device CV", "Pose tracking", "EMA/Hysteresis", "WebGPU"],
+    tags: ["ShellHacks 2025", "On-device CV", "Pose tracking", "EMA/Hysteresis", "WebGPU", "Next.js", "TypeScript", "MediaPipe Pose", "TensorFlow", "WebGPU/WebGL", "HTML Canvas 2D", "Tailwind"],
     stack: ["Next.js", "TypeScript", "MediaPipe Pose", "TensorFlow", "WebGPU/WebGL", "HTML Canvas 2D", "Tailwind"],
     links: {
       
@@ -60,7 +70,7 @@ export const PROJECTS: Project[] = [
     blurb:
       "Web app that helps users pick optimal insurance plans. Learned fundamentals of web development + fun first hackathon :0",
     hero: "/projects/insure.png", 
-    tags: ["ShellHacks 2024", "Fundamentals"],
+    tags: ["ShellHacks 2024", "Fundamentals", "React", "JavaScript", "CSS", "HTML"],
     stack: ["React", "JavaScript", "CSS", "HTML"],
     links: {
        repo: "https://github.com/hector1128/insurefair" 
