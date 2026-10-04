@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import {
   motion,
   AnimatePresence,
@@ -8,6 +8,7 @@ import {
   LayoutGroup,
 } from "framer-motion";
 import { createPortal } from "react-dom";
+import useModalFocus from "./use-modal-focus";
 
 type CardProps = {
   imglink: string;
@@ -24,6 +25,7 @@ type ReadMoreProps = {
   imglink: string;
   layoutId: string;
   highlight: string[];
+  returnFocusRef: RefObject<HTMLButtonElement | null>;
 };
 
 export default function Card({
@@ -35,6 +37,7 @@ export default function Card({
 }: CardProps) {
   const [generated, setGenerated] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const layoutId = `card-${cardtitle.replace(/\s+/g, "-")}-image`;
 
   useEffect(() => setMounted(true), []);
@@ -77,13 +80,14 @@ export default function Card({
           </motion.div>
 
           <div className="p-5">
-            <h5 className="mb-2 text-h3 font-bold tracking-tight [@media(hover:hover)]:group-hover:text-brand">
+            <h2 className="mb-2 text-h3 font-bold tracking-tight [@media(hover:hover)]:group-hover:text-brand">
               {cardtitle}
-            </h5>
+            </h2>
             <p className="mb-4 font-normal [@media(hover:hover)]:group-hover:text-brand">
               {cardtext}
             </p>
             <button
+              ref={triggerRef}
               onClick={() => setGenerated(true)}
               /* Resting fill is inverted (light chip on the brown card).
                  It used to be bg-brand on a bg-brand card, so the button was
@@ -137,6 +141,7 @@ export default function Card({
                   cardparagraph={cardparagraph}
                   layoutId={layoutId}
                   highlight={highlight}
+                  returnFocusRef={triggerRef}
                 />
               )}
             </AnimatePresence>,
@@ -154,12 +159,10 @@ export function ReadMore({
   cardparagraph,
   highlight = [],
   layoutId,
+  returnFocusRef,
 }: ReadMoreProps) {
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [onClose]);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useModalFocus(dialogRef, onClose, returnFocusRef);
 
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 8 },
@@ -176,9 +179,11 @@ export function ReadMore({
 
   return (
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
       aria-label={`${cardtitle} details`}
+      tabIndex={-1}
       /* items-end -> bottom sheet on mobile; centred dialog at sm+ */
       className="fixed inset-0 z-[9999] flex items-end justify-center overscroll-contain sm:items-center"
     >
@@ -238,9 +243,9 @@ export function ReadMore({
           transition={{ staggerChildren: 0.06, delayChildren: 0.02 }}
         >
           <motion.div variants={itemVariants} className="sm:col-span-3">
-            <h3 className="text-h2 font-semibold tracking-tight text-brand-strong">
+            <h2 className="text-h2 font-semibold tracking-tight text-brand-strong">
               {cardtitle}
-            </h3>
+            </h2>
             <p className="mt-3 leading-relaxed">{cardparagraph}</p>
           </motion.div>
 
@@ -279,6 +284,7 @@ export function ReadMore({
         <button
           onClick={onClose}
           aria-label="Close"
+          data-dialog-initial-focus
           className="absolute top-3 right-3 grid h-11 w-11 cursor-pointer place-items-center rounded-full
                      bg-black/40 text-white backdrop-blur transition hover:bg-black/50
                      focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none"

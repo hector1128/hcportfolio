@@ -4,6 +4,7 @@ import { cardData } from "../data/about";
 
 export const metadata = {
   title: "About",
+  alternates: { canonical: "/about" },
   description: "A timeline of my life and experiences. Enjoy...",
 };
 
@@ -20,6 +21,7 @@ export default function AboutPage() {
     <main className="page-shell relative min-h-screen overflow-x-hidden">
       {/* ---------- Intro ---------- */}
       <section className="fade-onload mx-auto mb-8 max-w-4xl pt-8">
+        <h1 className="mb-4 text-h1 font-semibold text-brand">About</h1>
         <Typewriter
           text={`This is a little timeline that showcases my life up until now. Enjoy :)...`}
           design="text-ink/80 text-body leading-relaxed min-h-[5rem] sm:min-h-[3.5rem]

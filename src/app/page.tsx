@@ -4,6 +4,7 @@ import Typewriter from "./components/type-writer";
 
 export const metadata = {
   title: "Home",
+  alternates: { canonical: "/" },
   description:
     "Welcome to my personal portfolio website! I am a Software Engineer and second year Computer Science Student at UCF. Click to learn more...",
 };

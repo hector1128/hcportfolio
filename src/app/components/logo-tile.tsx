@@ -8,11 +8,11 @@ export default function LogoTile({
   onOpen,
 }: {
   exp: Experience;
-  onOpen: () => void;
+  onOpen: (trigger: HTMLButtonElement) => void;
 }) {
   return (
     <button
-      onClick={onOpen}
+      onClick={(event) => onOpen(event.currentTarget)}
       className="group relative flex w-full cursor-pointer flex-col overflow-hidden rounded-2xl bg-surface
                  text-left shadow-[0_10px_24px_-12px_rgba(91,58,41,0.35)] ring-1 ring-brand/10
                  transition-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40

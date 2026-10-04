@@ -122,9 +122,9 @@ function MobileList({
                 />
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="text-base font-semibold text-brand-strong">
+                <h2 className="text-base font-semibold text-brand-strong">
                   {p.title}
-                </h3>
+                </h2>
                 {p.year && (
                   <p className="text-xs text-brand/80">{p.year}</p>
                 )}
@@ -256,13 +256,13 @@ function DesktopDeck({
                 </motion.div>
 
                 <div>
-                  <motion.h3
+                  <motion.h2
                     layoutId={`title-${featured.id}`}
                     transition={t}
                     className="text-h2 font-semibold text-brand-strong"
                   >
                     {featured.title}
-                  </motion.h3>
+                  </motion.h2>
                   <p className="mt-2 text-brand">{featured.blurb}</p>
                   <div className="mt-4">
                     <Tags tags={featured.tags} />
@@ -302,13 +302,13 @@ function DesktopDeck({
                   />
                 </motion.div>
                 <div className="p-4">
-                  <motion.h4
+                  <motion.h2
                     layoutId={`title-${p.id}`}
                     transition={t}
                     className="text-h3 font-semibold text-brand-strong"
                   >
                     {p.title}
-                  </motion.h4>
+                  </motion.h2>
                   <p className="mt-1 text-sm text-brand/90">{p.blurb}</p>
                 </div>
               </motion.div>

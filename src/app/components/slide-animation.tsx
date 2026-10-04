@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { type Experience } from "../data/career";
+import useModalFocus from "./use-modal-focus";
 
 /* A right-edge drawer is a desktop pattern — at 92vw on a phone it is
    effectively fullscreen anyway. Below md we slide up from the bottom
@@ -33,18 +34,15 @@ function useIsMobile() {
 export default function SlideOver({
   exp,
   onClose,
+  returnFocusRef,
 }: {
   exp: Experience;
   onClose: () => void;
+  returnFocusRef: RefObject<HTMLButtonElement | null>;
 }) {
   const isMobile = useIsMobile();
-
-  // ESC to close
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [onClose]);
+  const dialogRef = useRef<HTMLElement>(null);
+  useModalFocus(dialogRef, onClose, returnFocusRef);
 
   const motionProps = isMobile
     ? { initial: { y: "100%" }, animate: { y: 0 }, exit: { y: "100%" } }
@@ -54,6 +52,7 @@ export default function SlideOver({
     <>
       {/* Backdrop */}
       <motion.div
+        data-dialog-backdrop
         className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -64,6 +63,7 @@ export default function SlideOver({
 
       {/* Panel: bottom sheet on mobile, right drawer at md+ */}
       <motion.aside
+        ref={dialogRef}
         className="fixed z-50 flex flex-col bg-brand text-on-brand shadow-2xl
                    inset-x-0 bottom-0 max-h-[88dvh] rounded-t-2xl border-t border-white/10
                    md:inset-x-auto md:top-0 md:right-0 md:h-dvh md:max-h-none md:w-[92vw] md:max-w-xl
@@ -73,6 +73,7 @@ export default function SlideOver({
         role="dialog"
         aria-modal="true"
         aria-label={`${exp.company} — details`}
+        tabIndex={-1}
       >
         {/* Grabber — signals the sheet is dismissable on touch */}
         <div aria-hidden className="flex justify-center pt-2.5 md:hidden">
@@ -90,6 +91,7 @@ export default function SlideOver({
           </div>
           <button
             onClick={onClose}
+            data-dialog-initial-focus
             className="grid h-11 w-11 shrink-0 cursor-pointer place-items-center rounded-lg bg-black/20
                        transition hover:bg-black/30 focus-visible:ring-2 focus-visible:ring-white/40
                        focus-visible:outline-none"

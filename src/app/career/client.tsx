@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import LogoTile from "../components/logo-tile";
 import SlideOver from "../components/slide-animation";
@@ -12,6 +12,7 @@ export default function CareerInteractive({
   experiences: Experience[];
 }) {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const active = useMemo(
     () => experiences.find((e) => e.id === activeId) || null,
     [activeId, experiences]
@@ -38,12 +39,25 @@ export default function CareerInteractive({
         ].join(" ")}
       >
         {experiences.map((exp) => (
-          <LogoTile key={exp.id} exp={exp} onOpen={() => setActiveId(exp.id)} />
+          <LogoTile
+            key={exp.id}
+            exp={exp}
+            onOpen={(trigger) => {
+              triggerRef.current = trigger;
+              setActiveId(exp.id);
+            }}
+          />
         ))}
       </div>
 
       <AnimatePresence>
-        {active && <SlideOver exp={active} onClose={() => setActiveId(null)} />}
+        {active && (
+          <SlideOver
+            exp={active}
+            onClose={() => setActiveId(null)}
+            returnFocusRef={triggerRef}
+          />
+        )}
       </AnimatePresence>
     </>
   );

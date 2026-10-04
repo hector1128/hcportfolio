@@ -5,6 +5,7 @@ import Typewriter from "../components/type-writer";
 
 export const metadata = {
   title: "Career",
+  alternates: { canonical: "/career" },
   description: "My work experience and skills.",
 };
 

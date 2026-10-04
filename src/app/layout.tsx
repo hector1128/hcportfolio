@@ -29,8 +29,6 @@ export const metadata: Metadata = {
     "portfolio",
   ],
 
-  alternates: { canonical: "/" },
-
   robots: {
     index: true,
     follow: true,

@@ -4,6 +4,7 @@ import { PROJECTS } from "../data/projects";
 
 export const metadata = {
   title: "Projects",
+  alternates: { canonical: "/projects" },
   description:
     "Personal projects showing my progression as a developer — Trackr, FirstStep, InvestEd, MOVE and InsureFair.",
 };
@@ -12,6 +13,7 @@ export default function ProjectsPage() {
   return (
     <main className="page-shell">
       <section className="fade-onload mx-auto mb-8 max-w-4xl pt-8">
+        <h1 className="mb-4 text-h1 font-semibold text-brand">Projects</h1>
         <Typewriter
           text={`Here's my progression as a developer through some cool personal projects. Feel free to check them out :)`}
           design="text-ink/80 text-body leading-relaxed min-h-[5rem] sm:min-h-[3.5rem]
